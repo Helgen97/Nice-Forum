@@ -1,0 +1,183 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Добро пожаловать, ${firstName}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+		#outlook a {padding:0;}
+		body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}
+		.ExternalClass {width:100%;}
+		.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+		#backgroundTable {margin:0; padding:0; width:100% !important; line-height: 100% !important;}
+		img {outline:none; text-decoration:none; -ms-interpolation-mode: bicubic;}
+		a img {border:none;}
+		.image_fix {display:block;}
+		p {margin: 1em 0;}
+		h1, h2, h3, h4, h5, h6 {color: white !important;}
+		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {color: blue !important;}
+		h1 a:active, h2 a:active,  h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+			color: red !important;
+		 }
+		h1 a:visited, h2 a:visited,  h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+			color: purple !important;
+		}
+		table td {border-collapse: collapse;}
+		table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+		a {color: orange;}
+		@media only screen and (max-device-width: 480px) {
+			a[href^="tel"], a[href^="sms"] {
+						text-decoration: none;
+						color: black; /* or whatever your want */
+						pointer-events: none;
+						cursor: default;
+					}
+			.mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+						text-decoration: default;
+						color: orange !important; /* or whatever your want */
+						pointer-events: auto;
+						cursor: default;
+					}
+		}
+		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+			a[href^="tel"], a[href^="sms"] {
+						text-decoration: none;
+						color: blue;
+						pointer-events: none;
+						cursor: default;
+					}
+			.mobile_link a[href^="tel"], .mobile_link a[href^="sms"] {
+						text-decoration: default;
+						color: orange !important;
+						pointer-events: auto;
+						cursor: default;
+					}
+		}
+		@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+			/* Put your iPhone 4g styles in here */
+		}
+		@media only screen and (-webkit-device-pixel-ratio:.75){
+			/* Put CSS for low density (ldpi) Android layouts in here */
+		}
+		@media only screen and (-webkit-device-pixel-ratio:1){
+			/* Put CSS for medium density (mdpi) Android layouts in here */
+		}
+		@media only screen and (-webkit-device-pixel-ratio:1.5){
+			/* Put CSS for high density (hdpi) Android layouts in here */
+		}
+	</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        table {
+            width: 600px;
+            border-collapse: collapse;
+        }
+
+        tr:nth-child(2) {
+            border-top: 2px white solid;
+            border-bottom: 2px white solid;
+        }
+
+        td {
+            background-color: #3C7D9F;
+            padding: 20px 20px 20px 20px;
+        }
+
+        img {
+            display: block;
+        }
+
+        .header {
+            display: flex;
+            border-radius: 30px 30px 0 0;
+            justify-content: space-around;
+        }
+
+        .header h3{
+            align-self: center;
+            color: white;
+        }
+
+        .header img {
+            width: 238px;
+            height: 99px;
+        }
+
+        .content {
+            background-color: rgba(66, 135, 171, 0.9);
+        }
+
+        .content p {
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .content span {
+            font-style: italic;
+            color: orange;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .footer a {
+            display: block;
+            align-self: center;
+            font-weight: 700;
+        }
+
+        .footer img {
+            width: 253px;
+            height: 48px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <body>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <table cellpadding="0" cellspacing="0" align="center">
+            <tr>
+                <td class="header">
+                    <a href="#"><img src="https://i.ibb.co/wNJ72wy/Logo.png"
+                            alt="Nice-Forum Logo"></a>
+                    <h3>Приветствуем тебя, ${firstName}!</h3>
+                </td>
+            </tr>
+            <tr>
+                <td class="content">
+                    <p>Спасибо за регистрацию на нашем форуме! Ты на шаг ближе к новым знакомствам и общению! Оставляем твои данные для входа: </p>
+                    <p>Твой ник: <span>${nickname}</span></p>
+                    <p>Твой почта: <span>${email}</span></p>
+                    <p>Обязательно ознакомся с нашими <a href="#">правилами!</a> Приятного тебе общения!</p>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="footer">
+                    <a href="#"><img src="https://i.ibb.co/nkQBSfM/Logo-2.png" alt="Nice-Forum Footer Logo"></a>
+                    <a href="#" style="text-decoration: none; color: white;">Helgen &copy;</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+
+</body>
+
+</html>
