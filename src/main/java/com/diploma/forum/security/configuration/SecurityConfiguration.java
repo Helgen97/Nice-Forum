@@ -1,14 +1,25 @@
 package com.diploma.forum.security.configuration;
 
+import com.diploma.forum.security.authEntryPoint.AuthEntryPoint;
+import com.diploma.forum.security.filters.AuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableConfigurationProperties
@@ -16,16 +27,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationFilter authenticationFilter;
+    private final AuthEntryPoint exceptionHandler;
 
     @Autowired
-    public SecurityConfiguration(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+    public SecurityConfiguration(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder, AuthenticationFilter authenticationFilter, AuthEntryPoint authEntryPoint) {
         this.userDetailsService = userDetailsService;
         this.passwordEncoder = passwordEncoder;
+        this.authenticationFilter = authenticationFilter;
+        this.exceptionHandler = authEntryPoint;
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-                //.csrf().disable()
+        //.csrf().disable()
 //                .authorizeRequests().antMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
 //                .and()
 //                .authorizeRequests().antMatchers(HttpMethod.POST, "/users").permitAll()
@@ -53,17 +68,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .authorizeRequests().antMatchers(HttpMethod.POST, "/check/email", "/check/nickname").permitAll()
 //                .and()
 //                .authorizeRequests().antMatchers(HttpMethod.POST, "/change/password").authenticated()
-                //.and().httpBasic()
-                //.and().sessionManagement().disable();
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/api/users", "/api/topics", "/api/sections", "/api/comments", "/api/tags", "/check/email", "/check/nickname", "/change/password", "/check/user").permitAll()
+        //.and().httpBasic()
+        //.and().sessionManagement().disable();
+        http.csrf().disable().cors()
                 .and()
-                .formLogin()
-                .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("http://localhost:3000/",true)
-                .failureUrl("http://localhost:3000/login?error=true")
-                .and().logout()
-                .logoutUrl("/perform_logout");
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
+                .anyRequest().permitAll()
+                .and()
+                .exceptionHandling().authenticationEntryPoint(exceptionHandler)
+                .and()
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override
@@ -71,5 +88,25 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder);
+    }
+
+    @Bean
+    public AuthenticationManager getAuthenticationManager() throws Exception {
+        return authenticationManager();
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        configuration.setAllowedMethods(List.of("*"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(false);
+        configuration.applyPermitDefaultValues();
+
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }

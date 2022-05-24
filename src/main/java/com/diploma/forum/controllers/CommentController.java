@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/comments")
-@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
 @Tag(name = "Comments Controller", description = "Controller for working with comments")
 public class CommentController {
 

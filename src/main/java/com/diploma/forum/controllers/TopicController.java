@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/topics")
-@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
 @Tag(name = "Topic Controller", description = "Controller for working with topics")
 public class TopicController {
 
