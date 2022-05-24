@@ -11,7 +11,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("sections")
+@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
+@RequestMapping("/api/sections")
 @Tag(name = "Section Controller", description = "Controller for working with sections")
 public class SectionController {
 

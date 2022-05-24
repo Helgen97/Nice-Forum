@@ -13,6 +13,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findUserByNickname(String nickname);
 
+    Boolean existsByEmail(String email);
+
+    Boolean existsByNickname(String nickname);
+
     @Query("select u from User u where u.isNotified = ?1")
     List<User> findUsersByNotified(boolean isNotified);
 }

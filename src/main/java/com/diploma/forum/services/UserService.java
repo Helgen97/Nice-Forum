@@ -81,4 +81,24 @@ public class UserService {
         return newUsers;
     }
 
+    @Transactional(readOnly = true)
+    public boolean checkEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
+    @Transactional(readOnly = true)
+    public boolean checkNickname(String nickname) {
+        return userRepository.existsByNickname(nickname);
+    }
+
+    @Transactional
+    public boolean changePassword(String oldPassword, String newPassword, String nickname) {
+        User user = userRepository.findUserByNickname(nickname);
+        if (passwordEncoder.matches(oldPassword, user.getPassword())) {
+            user.setPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user);
+            return true;
+        }
+        return false;
+    }
 }

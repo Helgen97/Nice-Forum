@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 @Data
 public class CommentDTO {
     private Long id;
-    private Long creatorID;
+    private Long creatorId;
     private String creatorNickName;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalDateTime dateCreation;
 
     private String text;
@@ -21,14 +21,14 @@ public class CommentDTO {
     private int likes;
 
     private CommentDTO(Long id,
-                       Long creatorID,
+                       Long creatorId,
                        String creatorNickName,
                        LocalDateTime dateCreation,
                        String text,
                        Long topicId,
                        int likes) {
         this.id = id;
-        this.creatorID = creatorID;
+        this.creatorId = creatorId;
         this.creatorNickName = creatorNickName;
         this.dateCreation = dateCreation;
         this.text = text;

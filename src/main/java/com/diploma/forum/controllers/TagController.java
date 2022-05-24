@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("tags")
+@RequestMapping("/api/tags")
 @Tag(name = "Tag Controller", description = "Controller for working with tags")
 public class TagController {
 

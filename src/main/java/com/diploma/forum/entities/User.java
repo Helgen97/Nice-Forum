@@ -54,6 +54,9 @@ public class User {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     private Date registrationDate;
 
+    @Column(name = "LikesReceived")
+    private long userLikes;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "creator")
     @ToString.Exclude
     private final List<Topic> userTopics = new ArrayList<>();

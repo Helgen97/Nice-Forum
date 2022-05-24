@@ -24,6 +24,10 @@ public class UserDTO {
     @JsonFormat(pattern = "dd.MM.yyyy")
     private Date birthday;
 
+    @JsonFormat(pattern = "dd.MM.yyyy")
+    private Date registrationDate;
+
+    private long userLikes;
     private List<TopicDTO> userTopics;
     private List<CommentDTO> userComments;
 
@@ -34,6 +38,8 @@ public class UserDTO {
                     String nickname,
                     Role role,
                     Date birthday,
+                    Date registrationDate,
+                    long userLikes,
                     List<TopicDTO> userTopics,
                     List<CommentDTO> userComments) {
         this.id = id;
@@ -43,6 +49,8 @@ public class UserDTO {
         this.nickname = nickname;
         this.role = role;
         this.birthday = birthday;
+        this.registrationDate = registrationDate;
+        this.userLikes = userLikes;
         this.userTopics = userTopics;
         this.userComments = userComments;
     }
@@ -56,6 +64,8 @@ public class UserDTO {
                 user.getNickname(),
                 user.getRole(),
                 user.getBirthday(),
+                user.getRegistrationDate(),
+                user.getUserLikes(),
                 topicListOf(user.getUserTopics()),
                 commentListOf(user.getUserComments())
         );

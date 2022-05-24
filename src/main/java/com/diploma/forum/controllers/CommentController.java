@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 
 
 @RestController
-@RequestMapping("comments")
+@RequestMapping("/api/comments")
+@CrossOrigin(value = "http://localhost:3000", maxAge = 3600)
 @Tag(name = "Comments Controller", description = "Controller for working with comments")
 public class CommentController {
 
@@ -29,14 +30,15 @@ public class CommentController {
         return commentService.getAll().stream().map(CommentDTO::of).collect(Collectors.toList());
     }
 
-    @GetMapping("{id}/{page}")
-    public List<CommentDTO> getTopicComments(@PathVariable Long id, @PathVariable int page) {
-        return commentService.getTopicComments(id, page).orElseThrow(NotFoundException::new).stream().map(CommentDTO::of).collect(Collectors.toList());
+    @GetMapping("{id}")
+    public List<CommentDTO> getTopicComments(@PathVariable Long id) {
+        return commentService.getTopicComments(id).stream().map(CommentDTO::of).collect(Collectors.toList());
     }
 
     @PostMapping
     public CommentDTO create(@RequestBody Comment comment, @AuthenticationPrincipal User user) {
-        return CommentDTO.of(commentService.create(comment, user.getUsername()));
+        return CommentDTO.of(commentService.create(comment, "Helgen"));
+        //TODO HARDCODED USER
     }
 
     @PutMapping("{id}")

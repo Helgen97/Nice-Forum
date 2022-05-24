@@ -39,9 +39,9 @@ public class CommentService {
     }
 
     @Transactional(readOnly = true)
-    public Optional<List<Comment>> getTopicComments(Long id, int page) {
+    public List<Comment> getTopicComments(Long id) {
         LOGGER.info("Get topic comments with topic id: " + id + ".");
-        return commentRepository.findAllByCommentTopic_Id(id, PageRequest.of(page, 10), Sort.by(Sort.Direction.DESC));
+        return commentRepository.findAllByCommentTopic_Id(id);
     }
 
     @Transactional
@@ -74,6 +74,10 @@ public class CommentService {
         LOGGER.info("Like comment with id: " + id + ".");
         Comment comment = commentRepository.getById(id);
         comment.setLikes(comment.getLikes() + 1);
+        userRepository.findById(comment.getCommentCreator().getId()).ifPresent((e) -> {
+            e.setUserLikes(e.getUserLikes() + 1);
+            userRepository.save(e);
+        });
         commentRepository.save(comment);
     }
 
@@ -82,6 +86,10 @@ public class CommentService {
         LOGGER.info("Dislike comment with id: " + id + ".");
         Comment comment = commentRepository.getById(id);
         if (comment.getLikes() == 0) return;
+        userRepository.findById(comment.getCommentCreator().getId()).ifPresent((e) -> {
+            e.setUserLikes(e.getUserLikes() + 1);
+            userRepository.save(e);
+        });
         comment.setLikes(comment.getLikes() - 1);
         commentRepository.save(comment);
     }

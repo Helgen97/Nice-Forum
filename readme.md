@@ -51,3 +51,6 @@ It is a forum where you can post your topics, make comments and speak with other
 * HTML/CSS
 * Javascript
 ***
+
+## Special thanks:
+<a href="https://prog.academy/"><img src="https://prog.academy/images/tild6665-3162-4334-b165-303038353765__logo.png" width="150px"></a>

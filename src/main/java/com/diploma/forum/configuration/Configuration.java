@@ -1,9 +1,6 @@
 package com.diploma.forum.configuration;
 
-import com.diploma.forum.entities.Role;
-import com.diploma.forum.entities.Section;
-import com.diploma.forum.entities.Topic;
-import com.diploma.forum.entities.User;
+import com.diploma.forum.entities.*;
 import com.diploma.forum.repositories.SectionRepository;
 import com.diploma.forum.repositories.TopicRepository;
 import com.diploma.forum.repositories.UserRepository;
@@ -17,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Date;
 
 @org.springframework.context.annotation.Configuration
@@ -51,6 +49,17 @@ public class Configuration {
                 section.setName("О форуме!");
                 section.setDescription("Здесь собрана вся информация по форуму");
 
+                Section sectionTwo = new Section();
+                sectionTwo.setName("Глава 2");
+                sectionTwo.setDescription("Здесь собрана вся информация по главе 2");
+
+                Tag one = new Tag();
+                Tag two = new Tag();
+                Tag three = new Tag();
+                one.setTagName("News");
+                two.setTagName("Add");
+                three.setTagName("Test");
+
                 Topic topic = new Topic();
                 topic.setTitle("Новости форума");
                 topic.setDescription("Тут наши новости");
@@ -58,10 +67,50 @@ public class Configuration {
                 topic.setText("Новости!\nВот такие новости!\nПривет всем!");
                 topic.setCreator(user);
                 topic.setDate(LocalDateTime.now());
+                topic.setTopicTags(Arrays.asList(one, two, three));
+
+
+                Topic topicTwo = new Topic();
+                topicTwo.setTitle("Новости форума");
+                topicTwo.setDescription("Тут наши новости");
+                topicTwo.setSection(section);
+                topicTwo.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicTwo.setCreator(user);
+                topicTwo.setDate(LocalDateTime.now());
+
+                Topic topicThree = new Topic();
+                topicThree.setTitle("Новости форума");
+                topicThree.setDescription("Тут наши новости");
+                topicThree.setSection(section);
+                topicThree.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicThree.setCreator(user);
+                topicThree.setDate(LocalDateTime.now());
+
+                Topic topicFour = new Topic();
+                topicFour.setTitle("Новости форума");
+                topicFour.setDescription("Тут наши новости");
+                topicFour.setSection(sectionTwo);
+                topicFour.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicFour.setCreator(user);
+                topicFour.setDate(LocalDateTime.now());
+
+                Topic topicFive = new Topic();
+                topicFive.setTitle("Новости форума");
+                topicFive.setDescription("Тут наши новости");
+                topicFive.setSection(sectionTwo);
+                topicFive.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicFive.setCreator(user);
+                topicFive.setDate(LocalDateTime.now());
 
                 userRepository.save(user);
                 sectionRepository.save(section);
+                sectionRepository.save(sectionTwo);
                 topicRepository.save(topic);
+                topicRepository.save(topicTwo);
+                topicRepository.save(topicThree);
+                topicRepository.save(topicFour);
+                topicRepository.save(topicFive);
+
             }
         };
     }
