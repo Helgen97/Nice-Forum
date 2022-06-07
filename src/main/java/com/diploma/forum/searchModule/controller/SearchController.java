@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("search")
+@RequestMapping("/api/search")
 @Tag(name = "Search Module", description = "Searching module for working with search request")
 public class SearchController {
 
@@ -32,7 +32,7 @@ public class SearchController {
     )
     @GetMapping
     public List<TopicDTO> searchTopics(
-            @RequestParam @Parameter(description = "Topic title that topic starts with") String title,
+            @RequestParam(required = false) @Parameter(description = "Topic title that topic starts with") String title,
             @RequestParam(required = false) @Parameter(description = "Nickname of topics creator") String author,
             @RequestParam(required = false) @Parameter(description = "Section, that topics belong") String section,
             @RequestParam(required = false) @Parameter(description = "Tag names used in topics.") String tags,

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Data
@@ -17,7 +17,7 @@ public class TopicDTO {
     private String description;
     private String text;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime date;
     private int likes;
     private int commentsAmount;
@@ -25,7 +25,7 @@ public class TopicDTO {
     private String sectionTitle;
     private Long creatorId;
     private String creatorNickName;
-    private List<TagDTO> topicTags;
+    private Set<TagDTO> topicTags;
 
     private TopicDTO(Long id,
                      String title,
@@ -38,7 +38,7 @@ public class TopicDTO {
                      String sectionTitle,
                      Long creatorId,
                      String creatorNickName,
-                     List<TagDTO> topicTags
+                     Set<TagDTO> topicTags
     ) {
         this.id = id;
         this.title = title;
@@ -64,13 +64,13 @@ public class TopicDTO {
                 topic.getLikes(),
                 topic.getTopicComments().size(),
                 topic.getSection().getId(),
-                topic.getTitle(),
-                topic.getCreator().getId(),
-                topic.getCreator().getNickname(),
+                topic.getSection().getTitle(),
+                topic.getCreator() != null ? topic.getCreator().getId() : 0,
+                topic.getCreator() != null ? topic.getCreator().getNickname() : "Deleted",
                 tagListOf(topic.getTopicTags()));
     }
 
-    private static List<TagDTO> tagListOf(List<Tag> topicTags) {
-        return topicTags.stream().map(TagDTO::of).collect(Collectors.toList());
+    private static Set<TagDTO> tagListOf(Set<Tag> topicTags) {
+        return topicTags.stream().map(TagDTO::of).collect(Collectors.toSet());
     }
 }

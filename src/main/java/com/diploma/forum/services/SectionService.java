@@ -4,7 +4,6 @@ import com.diploma.forum.entities.Section;
 import com.diploma.forum.repositories.SectionRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,7 +44,7 @@ public class SectionService {
         LOGGER.info("Updating section with id: " + id + ".");
         Optional<Section> oldSection = sectionRepository.findById(id);
         if (oldSection.isPresent()) {
-            oldSection.get().setName(section.getName());
+            oldSection.get().setTitle(section.getTitle());
             oldSection.get().setDescription(section.getDescription());
             return oldSection;
         }

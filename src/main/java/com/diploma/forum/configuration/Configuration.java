@@ -2,6 +2,7 @@ package com.diploma.forum.configuration;
 
 import com.diploma.forum.entities.*;
 import com.diploma.forum.repositories.SectionRepository;
+import com.diploma.forum.repositories.TagRepository;
 import com.diploma.forum.repositories.TopicRepository;
 import com.diploma.forum.repositories.UserRepository;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -16,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 
 @org.springframework.context.annotation.Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -30,6 +33,7 @@ public class Configuration {
     public CommandLineRunner demo(final UserRepository userRepository,
                                   final SectionRepository sectionRepository,
                                   final TopicRepository topicRepository,
+                                  final TagRepository tagRepository,
                                   final PasswordEncoder encoder) {
         return new CommandLineRunner() {
             @Override
@@ -45,72 +49,75 @@ public class Configuration {
                 user.setRole(Role.ADMIN);
                 user.setNotified(true);
 
+                User user1 = new User();
+                user1.setEmail("mail");
+                user1.setPassword(encoder.encode("1234"));
+                user1.setNickname("Admin");
+                user1.setFirstName("admin");
+                user1.setLastName("admin");
+                user1.setBirthday(new Date());
+                user1.setRegistrationDate(new Date());
+                user1.setRole(Role.USER);
+                user1.setNotified(true);
+
                 Section section = new Section();
-                section.setName("О форуме!");
+                section.setTitle("О форуме!");
                 section.setDescription("Здесь собрана вся информация по форуму");
 
                 Section sectionTwo = new Section();
-                sectionTwo.setName("Глава 2");
-                sectionTwo.setDescription("Здесь собрана вся информация по главе 2");
+                sectionTwo.setTitle("Разговоры");
+                sectionTwo.setDescription("Общение и знакомства.");
 
                 Tag one = new Tag();
                 Tag two = new Tag();
                 Tag three = new Tag();
-                one.setTagName("News");
-                two.setTagName("Add");
-                three.setTagName("Test");
+                one.setTagName("Новости");
+                two.setTagName("Тест");
+                three.setTagName("Разработка");
+
+                tagRepository.saveAll(List.of(one, two, three));
 
                 Topic topic = new Topic();
                 topic.setTitle("Новости форума");
                 topic.setDescription("Тут наши новости");
                 topic.setSection(section);
-                topic.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topic.setText("Новости!\nФорум работает в тестовом режиме!\nПробуем и дорабатываем!");
                 topic.setCreator(user);
                 topic.setDate(LocalDateTime.now());
-                topic.setTopicTags(Arrays.asList(one, two, three));
-
+                topic.setTopicTags(new HashSet<>(Arrays.asList(one, two, three)));
 
                 Topic topicTwo = new Topic();
-                topicTwo.setTitle("Новости форума");
-                topicTwo.setDescription("Тут наши новости");
+                topicTwo.setTitle("Правила!");
+                topicTwo.setDescription("Правила общения на форуме!");
                 topicTwo.setSection(section);
-                topicTwo.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicTwo.setText("Свод правил! \n 1. Без оскорблений! \n 2. Адекватные ники и названия тем!");
                 topicTwo.setCreator(user);
                 topicTwo.setDate(LocalDateTime.now());
 
                 Topic topicThree = new Topic();
-                topicThree.setTitle("Новости форума");
-                topicThree.setDescription("Тут наши новости");
-                topicThree.setSection(section);
-                topicThree.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicThree.setTitle("Знакомства");
+                topicThree.setDescription("Узнаем друг друга лучше!");
+                topicThree.setSection(sectionTwo);
+                topicThree.setText("Приветствую на форуме! Я тут главный!");
                 topicThree.setCreator(user);
                 topicThree.setDate(LocalDateTime.now());
 
                 Topic topicFour = new Topic();
-                topicFour.setTitle("Новости форума");
-                topicFour.setDescription("Тут наши новости");
+                topicFour.setTitle("Флудильня");
+                topicFour.setDescription("Разговоры ни о чём");
                 topicFour.setSection(sectionTwo);
-                topicFour.setText("Новости!\nВот такие новости!\nПривет всем!");
+                topicFour.setText("Как ваши дела?");
                 topicFour.setCreator(user);
                 topicFour.setDate(LocalDateTime.now());
 
-                Topic topicFive = new Topic();
-                topicFive.setTitle("Новости форума");
-                topicFive.setDescription("Тут наши новости");
-                topicFive.setSection(sectionTwo);
-                topicFive.setText("Новости!\nВот такие новости!\nПривет всем!");
-                topicFive.setCreator(user);
-                topicFive.setDate(LocalDateTime.now());
-
                 userRepository.save(user);
+                userRepository.save(user1);
                 sectionRepository.save(section);
                 sectionRepository.save(sectionTwo);
                 topicRepository.save(topic);
                 topicRepository.save(topicTwo);
                 topicRepository.save(topicThree);
                 topicRepository.save(topicFour);
-                topicRepository.save(topicFive);
-
             }
         };
     }

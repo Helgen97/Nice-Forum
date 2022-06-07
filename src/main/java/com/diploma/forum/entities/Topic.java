@@ -9,9 +9,7 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "Topics")
@@ -53,14 +51,14 @@ public class Topic {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "commentTopic", cascade = CascadeType.ALL)
     private List<Comment> topicComments = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany
     @JoinTable(
             name = "Topic_tags",
             joinColumns = @JoinColumn(name = "Topic"),
-            inverseJoinColumns = @JoinColumn(name = "Tags")
+            inverseJoinColumns = @JoinColumn(name = "Tag")
     )
     @ToString.Exclude
-    private List<Tag> topicTags = new ArrayList<>();
+    private Set<Tag> topicTags = new HashSet<>();
 
 
     @Override

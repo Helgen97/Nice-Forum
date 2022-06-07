@@ -24,7 +24,7 @@ public class Section {
     private Long id;
 
     @Column(name = "Section_Name")
-    private String name;
+    private String title;
 
     @Column(name = "Section_Description")
     private String description;

@@ -1,5 +1,6 @@
 package com.diploma.forum.services;
 
+import com.diploma.forum.dto.CommentDTO;
 import com.diploma.forum.entities.Comment;
 import com.diploma.forum.entities.Topic;
 import com.diploma.forum.entities.User;
@@ -8,6 +9,7 @@ import com.diploma.forum.repositories.TopicRepository;
 import com.diploma.forum.repositories.UserRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 @Service
 public class CommentService {
@@ -39,10 +42,29 @@ public class CommentService {
     }
 
     @Transactional(readOnly = true)
-    public List<Comment> getTopicComments(Long id) {
+    public Page<CommentDTO> getTopicComments(Long id, int page, int limit) {
         LOGGER.info("Get topic comments with topic id: " + id + ".");
-        return commentRepository.findAllByCommentTopic_Id(id);
+        Page<Comment> commentsPage = commentRepository.findAllByCommentTopicId(id, PageRequest.of(page, limit));
+        return commentsPage.map(new Function<Comment, CommentDTO>() {
+            @Override
+            public CommentDTO apply(Comment comment) {
+                return CommentDTO.of(comment);
+            }
+        });
     }
+
+    @Transactional(readOnly = true)
+    public Page<CommentDTO> getCommentsByUserId(Long id, int page, int limit) {
+        LOGGER.info("Get comments with user id: " + id + ".");
+        Page<Comment> commentsPage = commentRepository.findAllByCommentCreatorId(id, PageRequest.of(page, limit, Sort.Direction.DESC, "id"));
+        return commentsPage.map(new Function<Comment, CommentDTO>() {
+            @Override
+            public CommentDTO apply(Comment comment) {
+                return CommentDTO.of(comment);
+            }
+        });
+    }
+
 
     @Transactional
     public Comment create(Comment comment, String creatorNickname) {

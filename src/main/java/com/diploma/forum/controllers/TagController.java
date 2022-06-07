@@ -27,7 +27,7 @@ public class TagController {
         return tagService.getAll().stream().map(TagDTO::of).collect(Collectors.toList());
     }
 
-    @GetMapping("{tagName}")
+    @GetMapping("/starts/{tagName}")
     public List<TagDTO> search(@PathVariable String tagName) {
         return tagService.tagSearch(tagName).stream().map(TagDTO::of).collect(Collectors.toList());
     }

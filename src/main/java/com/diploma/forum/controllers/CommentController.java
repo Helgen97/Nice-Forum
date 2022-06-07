@@ -3,10 +3,11 @@ package com.diploma.forum.controllers;
 import com.diploma.forum.dto.CommentDTO;
 import com.diploma.forum.entities.Comment;
 import com.diploma.forum.exceptions.NotFoundException;
+import com.diploma.forum.security.authUser.CurrentUser;
 import com.diploma.forum.services.CommentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,15 +30,19 @@ public class CommentController {
         return commentService.getAll().stream().map(CommentDTO::of).collect(Collectors.toList());
     }
 
-    @GetMapping("{id}")
-    public List<CommentDTO> getTopicComments(@PathVariable Long id) {
-        return commentService.getTopicComments(id).stream().map(CommentDTO::of).collect(Collectors.toList());
+    @GetMapping("{id}/{page}")
+    public Page<CommentDTO> getTopicComments(@PathVariable Long id, @PathVariable int page, @RequestParam int limit) {
+        return commentService.getTopicComments(id, page, limit);
+    }
+
+    @GetMapping("/user/{id}/{page}")
+    public Page<CommentDTO> getCommentsByUserId(@PathVariable Long id, @PathVariable int page, @RequestParam int limit) {
+        return commentService.getCommentsByUserId(id, page, limit);
     }
 
     @PostMapping
-    public CommentDTO create(@RequestBody Comment comment, @AuthenticationPrincipal User user) {
-        return CommentDTO.of(commentService.create(comment, "Helgen"));
-        //TODO HARDCODED USER
+    public CommentDTO create(@RequestBody Comment comment, @AuthenticationPrincipal CurrentUser user) {
+        return CommentDTO.of(commentService.create(comment, user.getNickname()));
     }
 
     @PutMapping("{id}")

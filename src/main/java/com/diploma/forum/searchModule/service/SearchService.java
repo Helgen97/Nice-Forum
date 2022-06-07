@@ -57,12 +57,14 @@ public class SearchService {
                                                     LocalDateTime to) {
         SearchSpecification searchSpecification = new SearchSpecification();
 
-        searchSpecification.add(new SearchCriteria("title", title, SearchOperation.MATCH_END));
+        if (title != null) {
+            searchSpecification.add(new SearchCriteria("title", title, SearchOperation.MATCH_END));
+        }
         if (author != null) {
             searchSpecification.add(new SearchCriteria("creator", "nickname", author, SearchOperation.EQUAL_WITH_TWO_KEYS));
         }
         if (section != null) {
-            searchSpecification.add(new SearchCriteria("section", "name", section, SearchOperation.EQUAL_WITH_TWO_KEYS));
+            searchSpecification.add(new SearchCriteria("section", "title", section, SearchOperation.EQUAL_WITH_TWO_KEYS));
         }
         if (tags != null) {
             for (String tag : fromStringToTagList(tags)) {

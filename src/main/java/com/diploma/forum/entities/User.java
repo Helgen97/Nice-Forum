@@ -47,7 +47,7 @@ public class User {
     private Role role;
 
     @Column(name = "Birthday")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthday;
 
     @Column(name = "RegistrationDate")

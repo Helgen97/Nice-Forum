@@ -1,11 +1,14 @@
 package com.diploma.forum.services;
 
+import com.diploma.forum.dto.UserDTO;
 import com.diploma.forum.entities.Role;
 import com.diploma.forum.entities.User;
 import com.diploma.forum.repositories.UserRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 @Service
 public class UserService {
@@ -29,9 +33,15 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public List<User> getAll() {
+    public Page<UserDTO> getAll(int page, int limit) {
         LOGGER.info("Getting list of all users.");
-        return userRepository.findAll();
+        Page<User> usersPage = userRepository.findAll(PageRequest.of(page, limit));
+        return usersPage.map(new Function<User, UserDTO>() {
+            @Override
+            public UserDTO apply(User user) {
+                return UserDTO.of(user);
+            }
+        });
     }
 
     @Transactional(readOnly = true)
@@ -45,7 +55,7 @@ public class UserService {
         LOGGER.info("Register new user.");
         user.setNotified(false);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(Role.ADMIN);
+        user.setRole(Role.USER);
         user.setRegistrationDate(new Date());
         return userRepository.save(user);
     }
@@ -66,8 +76,22 @@ public class UserService {
     }
 
     @Transactional
+    public Optional<User> updateUserRole(Long id, String role) {
+        LOGGER.info("Update user role with id: " + id + ".");
+        Optional<User> user = userRepository.findById(id);
+        if (user.isPresent()) {
+            user.get().setRole(Role.valueOf(role));
+            return user;
+        }
+        return user;
+    }
+
+    @Transactional
     public void delete(Long id) {
         LOGGER.info("Deleting user with id: " + id + ".");
+        User user = userRepository.getById(id);
+        user.getUserTopics().forEach(topic -> topic.setCreator(null));
+        user.getUserComments().forEach(comment -> comment.setCommentCreator(null));
         userRepository.deleteById(id);
     }
 

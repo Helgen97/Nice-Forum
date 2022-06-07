@@ -3,10 +3,11 @@ package com.diploma.forum.controllers;
 import com.diploma.forum.dto.TopicDTO;
 import com.diploma.forum.entities.Topic;
 import com.diploma.forum.exceptions.NotFoundException;
+import com.diploma.forum.security.authUser.CurrentUser;
 import com.diploma.forum.services.TopicService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,15 +29,24 @@ public class TopicController {
         return topicService.getAll().stream().map(TopicDTO::of).collect(Collectors.toList());
     }
 
+    @GetMapping("/section/{id}/{page}")
+    public Page<TopicDTO> getTopicsBySectionId(@PathVariable Long id, @PathVariable int page, @RequestParam int limit) {
+        return topicService.getAllBySectionId(id, page, limit);
+    }
+
+    @GetMapping("/user/{id}/{page}")
+    public Page<TopicDTO> getTopicsByUserId(@PathVariable Long id, @PathVariable int page, @RequestParam int limit) {
+        return topicService.getAllByUserId(id, page, limit);
+    }
+
     @GetMapping("{id}")
     public TopicDTO getOne(@PathVariable Long id) {
         return TopicDTO.of(topicService.getOne(id).orElseThrow(NotFoundException::new));
     }
 
     @PostMapping
-    public TopicDTO create(@RequestBody Topic topic, @AuthenticationPrincipal User user) {
-
-        return TopicDTO.of(topicService.create(topic, user.getUsername()));
+    public TopicDTO create(@RequestBody Topic topic, @AuthenticationPrincipal CurrentUser user) {
+        return TopicDTO.of(topicService.create(topic, user.getNickname()));
     }
 
     @PutMapping("{id}")

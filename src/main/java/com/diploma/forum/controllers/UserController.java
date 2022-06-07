@@ -6,10 +6,8 @@ import com.diploma.forum.exceptions.NotFoundException;
 import com.diploma.forum.services.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/users")
@@ -24,8 +22,8 @@ public class UserController {
     }
 
     @GetMapping
-    public List<UserDTO> getAll() {
-        return userService.getAll().stream().map(UserDTO::of).collect(Collectors.toList());
+    public Page<UserDTO> getAll(@RequestParam(required = false, defaultValue = "0") int page, @RequestParam(required = false, defaultValue = "100") int limit) {
+        return userService.getAll(page, limit);
     }
 
     @GetMapping("{id}")
@@ -41,6 +39,11 @@ public class UserController {
     @PutMapping("{id}")
     public UserDTO update(@RequestBody User user, @PathVariable Long id) {
         return UserDTO.of(userService.updatePersonalInfo(user, id).orElseThrow(NotFoundException::new));
+    }
+
+    @PutMapping("/role/{id}")
+    public UserDTO updateUserRole(@PathVariable Long id, @RequestParam String role) {
+        return UserDTO.of(userService.updateUserRole(id, role).orElseThrow(NotFoundException::new));
     }
 
     @DeleteMapping("{id}")

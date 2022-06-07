@@ -1,6 +1,5 @@
 package com.diploma.forum.controllers;
 
-import com.diploma.forum.exceptions.PasswordMismatchException;
 import com.diploma.forum.responces.MessageResponse;
 import com.diploma.forum.security.authUser.CurrentUser;
 import com.diploma.forum.services.UserService;
@@ -9,7 +8,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,9 +49,10 @@ public class ServiceController {
     }
 
     @PostMapping("change/password")
-    public void changePassword(String oldPassword, String newPassword, @AuthenticationPrincipal User user) {
-        LOGGER.info(String.format("Checking user %s password.", user.getUsername()));
-        if (!userService.changePassword(oldPassword, newPassword, user.getUsername()))
-            throw new PasswordMismatchException();
+    public MessageResponse changePassword(String oldPassword, String newPassword, @AuthenticationPrincipal CurrentUser currentUser) {
+        LOGGER.info(String.format("Changing user %s password.", currentUser.getNickname()));
+        return userService.changePassword(oldPassword, newPassword, currentUser.getNickname())
+                ? new MessageResponse("Пароль изменен", false)
+                : new MessageResponse("Пароль не совпадают", true);
     }
 }

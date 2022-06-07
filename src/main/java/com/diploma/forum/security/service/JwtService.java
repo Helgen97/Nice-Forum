@@ -1,26 +1,26 @@
 package com.diploma.forum.security.service;
 
-import com.diploma.forum.entities.User;
 import com.diploma.forum.repositories.UserRepository;
 import com.diploma.forum.security.authUser.CurrentUser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.Date;
 
 @Component
+@PropertySource("classpath:application.properties")
 public class JwtService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public JwtService(UserRepository userRepository) {

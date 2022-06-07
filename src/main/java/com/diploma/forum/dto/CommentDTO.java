@@ -39,8 +39,8 @@ public class CommentDTO {
     public static CommentDTO of(Comment comment) {
         return new CommentDTO(
                 comment.getId(),
-                comment.getCommentCreator().getId(),
-                comment.getCommentCreator().getNickname(),
+                comment.getCommentCreator() != null ? comment.getCommentCreator().getId() : 0,
+                comment.getCommentCreator() != null ? comment.getCommentCreator().getNickname() : "Deleted",
                 comment.getDateCreation(),
                 comment.getText(),
                 comment.getCommentTopic().getId(),

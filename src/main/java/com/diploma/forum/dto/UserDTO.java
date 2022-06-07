@@ -1,15 +1,11 @@
 package com.diploma.forum.dto;
 
-import com.diploma.forum.entities.Comment;
 import com.diploma.forum.entities.Role;
-import com.diploma.forum.entities.Topic;
 import com.diploma.forum.entities.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Data
 public class UserDTO {
@@ -21,15 +17,15 @@ public class UserDTO {
     private String nickname;
     private Role role;
 
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date registrationDate;
 
+    private long createdTopics;
+    private long createdComments;
     private long userLikes;
-    private List<TopicDTO> userTopics;
-    private List<CommentDTO> userComments;
 
     private UserDTO(Long id,
                     String email,
@@ -39,9 +35,10 @@ public class UserDTO {
                     Role role,
                     Date birthday,
                     Date registrationDate,
-                    long userLikes,
-                    List<TopicDTO> userTopics,
-                    List<CommentDTO> userComments) {
+                    long createdTopics,
+                    long createdComments,
+                    long userLikes
+    ) {
         this.id = id;
         this.email = email;
         this.firstName = firstName;
@@ -50,9 +47,9 @@ public class UserDTO {
         this.role = role;
         this.birthday = birthday;
         this.registrationDate = registrationDate;
+        this.createdTopics = createdTopics;
+        this.createdComments = createdComments;
         this.userLikes = userLikes;
-        this.userTopics = userTopics;
-        this.userComments = userComments;
     }
 
     public static UserDTO of(User user) {
@@ -65,18 +62,9 @@ public class UserDTO {
                 user.getRole(),
                 user.getBirthday(),
                 user.getRegistrationDate(),
-                user.getUserLikes(),
-                topicListOf(user.getUserTopics()),
-                commentListOf(user.getUserComments())
+                user.getUserTopics().size(),
+                user.getUserComments().size(),
+                user.getUserLikes()
         );
     }
-
-    private static List<CommentDTO> commentListOf(List<Comment> userComments) {
-        return userComments.stream().map(CommentDTO::of).collect(Collectors.toList());
-    }
-
-    private static List<TopicDTO> topicListOf(List<Topic> userTopics) {
-        return userTopics.stream().map(TopicDTO::of).collect(Collectors.toList());
-    }
-
 }

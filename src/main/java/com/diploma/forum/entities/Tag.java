@@ -7,9 +7,9 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "Tags")
@@ -23,12 +23,12 @@ public class Tag {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Tag_Name")
+    @Column(name = "Tag_Name", unique = true)
     private String tagName;
 
     @ManyToMany(mappedBy = "topicTags")
     @ToString.Exclude
-    private List<Topic> tagTopics = new ArrayList<>();
+    private Set<Topic> tagTopics = new HashSet<>();
 
 
     @Override
