@@ -23,7 +23,7 @@ import java.util.Map;
 
 @Component
 @EnableScheduling
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:application-prod.properties")
 public class MailCenter {
 
     private static final Logger LOGGER = LogManager.getLogger(MailCenter.class.getName());

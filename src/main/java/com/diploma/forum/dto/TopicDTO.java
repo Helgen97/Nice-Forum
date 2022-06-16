@@ -17,7 +17,7 @@ public class TopicDTO {
     private String description;
     private String text;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private LocalDateTime date;
     private int likes;
     private int commentsAmount;

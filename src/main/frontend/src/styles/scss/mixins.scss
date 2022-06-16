@@ -1,0 +1,24 @@
+@mixin flexible-center() {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+@mixin flexible() {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+@mixin topic-page-btn() {
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 25px;
+    height: 25px;
+}
+
+@mixin width100-with-boxsize {
+    width: 100%;
+    box-sizing: border-box
+}

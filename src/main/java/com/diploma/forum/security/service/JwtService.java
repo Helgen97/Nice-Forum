@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @Component
-@PropertySource("classpath:application.properties")
+@PropertySource("classpath:application-dev.properties")
 public class JwtService {
 
     private final UserRepository userRepository;

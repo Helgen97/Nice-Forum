@@ -29,7 +29,7 @@ public class Topic {
     @Column(name = "Topic_Description")
     private String description;
 
-    @Column(name = "Topic_Text")
+    @Column(name = "Topic_Text", length = 600)
     private String text;
 
     @Column(name = "Date_of_Creation")

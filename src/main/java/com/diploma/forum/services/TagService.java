@@ -28,7 +28,7 @@ public class TagService {
 
     @Transactional(readOnly = true)
     public List<Tag> tagSearch(String tagName) {
-        LOGGER.info("Searching by tag name starts with.");
+        LOGGER.info(String.format("Searching by tag name starts with %s", tagName));
         return tagRepository.findTagsByTagNameStartingWith(tagName);
     }
 }
