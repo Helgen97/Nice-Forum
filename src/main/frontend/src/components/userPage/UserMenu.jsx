@@ -44,17 +44,17 @@ const UserMenu = () => {
     <div>
       <MetaTags
         title={
-          user.nickname + " - Профиль - Nice Forum - Форум приятого общения!"
+          user.nickname + " - Profile - Nice Forum - Forum of Nice Communication!"
         }
         description={
-          "Профиль пользователя " +
+          "Profile of " +
           user.nickname +
-          ". Информация о пользователе с ником " +
+          " user. Information about " +
           user.nickname +
           "."
         }
         keywords={
-          "Форум, общение, разделы, дружба, новости, личный кабинет, информация о пользователе"
+          "Forum, speaking, sections, friendship, news, profile, information about user"
         }
       />
 

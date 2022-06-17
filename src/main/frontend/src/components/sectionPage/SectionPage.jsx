@@ -63,13 +63,13 @@ const SectionPage = () => {
     <main className="main-page section-page">
       <MetaTags
         title={
-          section.title + " - Раздел - Nice Forum - Форум приятого общения!"
+          section.title + " - Section - Nice Forum - Forum of Nice Communication!"
         }
         description={
-          "Все темы раздела '" + section.title + "'. " + section.description
+          "All topics of '" + section.title + "' section. " + section.description
         }
         keywords={
-          "Форум, общение, разделы, дружба, новости, темы раздела, раздел"
+          "Forum, speaking, sections, friendship, news, section topics, section"
         }
       />
 

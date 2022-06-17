@@ -35,7 +35,7 @@ const UserListMenu = ({ lastElement }) => {
   return (
     <div id="user_list_menu" className="settings__panel-edit__block">
       <div className="settings__panel-edit__title">
-        <h3>Список пользователей:</h3>
+        <h3>User list:</h3>
       </div>
       <div className="user__card-list">
         {userList.map((user) => (

@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import SearchResultTopic from "./SearchResultTopic";
 import { useFetching } from "../../hooks/useFetching";
 import SearchService from "../../API/SearchService";
+import MetaTags from '../UI/meta/MetaTags';
 import Loader from "../UI/loader/Loader";
 import Error from "../UI/errorBanner/Error";
 
@@ -55,6 +56,11 @@ const SearchPage = () => {
 
   return (
     <main className="search-page">
+      <MetaTags 
+      title={"Advanced Search - Topic Search - Nice Forum - Forum of Nice Communication!"}
+      description={"Advanced Search. Search by sections, tags, authors and topics."}
+      keywords={"Forum, speaking, sections, friendship, news, search, advanced search, tags, sections, date"}
+      />
       <SearchHeader
         value={params.title}
         onChange={(e) => setParams({ ...params, title: e.target.value })}

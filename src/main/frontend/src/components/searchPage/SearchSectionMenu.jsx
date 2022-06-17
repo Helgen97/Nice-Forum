@@ -38,21 +38,21 @@ const SearchSectionMenu = ({ setSection, section }) => {
 
   return (
     <div id="section_menu" className="select-container__section">
-      <label htmlFor="section">Раздел:</label>
+      <label htmlFor="section">Section:</label>
       <div className="section__menu">
         <div className="section__menu-input">
           <input
             id="section_input"
             type="text"
-            placeholder="Выберите раздел"
+            placeholder="Choose section"
             value={section}
             readOnly
           />
         </div>
         <div className="section__menu-dropdown">
-          <ul>
+          <ul className="dropdown-ul">
             {sections.map((section) => (
-              <li className="dropdown-ul" id={section.id} key={section.id} onClick={selectSection} className="dropdown-li">
+              <li className="dropdown-li" id={section.id} key={section.id} onClick={selectSection}>
                 {section.title}
               </li>
             ))}

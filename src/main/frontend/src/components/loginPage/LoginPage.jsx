@@ -31,7 +31,7 @@ const LoginPage = () => {
     setError("");
 
     if (checkInputsEmpty()) {
-      setError("Заполните пустые поля!");
+      setError("Fill in the empty fields!");
       return;
     }
     setError("");
@@ -52,7 +52,7 @@ const LoginPage = () => {
       })
       .catch((error) => {
         console.log(error);
-        setError("Неправильные логин или пароль");
+        setError("Bad login or password");
       });
   }
 
@@ -66,36 +66,36 @@ const LoginPage = () => {
   return (
     <main className="login-page">
       <MetaTags
-        title={"Авторизация - Nice Forum - форум приятного общения!"}
+        title={"Sign in - Nice Forum - Forum of Nice Communication!"}
         description={
-          "Авторизация на форум. Войдите в свой профиль и начните общение."
+          "Nice-Forum sign in. Sign into your profile and start chatting."
         }
-        keywords={"Форум, общение, разделы, дружба, вход, авторизация"}
+        keywords={"Forum, speaking, sections, friendship, sign in, authorisation"}
       />
         <div className="form">
           <div className="form__title">
-            <h2>Авторизация</h2>
+            <h2>Sign in</h2>
           </div>
           <form>
             <Input
               id="username"
-              labelText="Эмейл или логин"
+              labelText="Email or login"
               type="text"
-              placeholder="Введите ваш логин или почту"
+              placeholder="Enter your login or email"
               value={user.username}
               onChange={(e) => setUser({ ...user, username: e.target.value })}
               error={error}
             />
             <Input
               id="password"
-              labelText="Пароль:"
+              labelText="Password:"
               type="password"
-              placeholder="Введите пароль"
+              placeholder="Enter password"
               value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
             <div className="form-btn-container">
-              <button onClick={login}>Войти</button>
+              <button onClick={login}>Sign in</button>
             </div>
           </form>
         </div>

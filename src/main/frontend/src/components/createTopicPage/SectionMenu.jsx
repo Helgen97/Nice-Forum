@@ -38,13 +38,13 @@ const SectionMenu = ({ setSection }) => {
 
   return (
     <div id="section_menu" className="select-container__section">
-      <label htmlFor="section">Раздел:</label>
+      <label htmlFor="section">Section:</label>
       <div className="section__menu">
         <div className="section__menu-input">
           <input
             id="section_input"
             type="text"
-            placeholder="Выберите раздел"
+            placeholder="Choose sections"
             readOnly
           />
         </div>

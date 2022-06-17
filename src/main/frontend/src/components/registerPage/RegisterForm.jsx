@@ -59,7 +59,7 @@ const RegisterForm = () => {
     e.preventDefault();
 
     if (checkInputsEmpty()) {
-      setEmptyInputsError("Заполните пустые поля!");
+      setEmptyInputsError("Fill in the empty fields!");
       return;
     }
     setEmptyInputsError("");
@@ -98,7 +98,7 @@ const RegisterForm = () => {
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailReg.test(email)) {
       setEmailInputMessage({
-        message: "Некоректный эмейл",
+        message: "Incorrect email",
         error: true,
       });
       setEmailPatternError(true);
@@ -114,7 +114,7 @@ const RegisterForm = () => {
   function checkPasswordSame() {
     if (newUser.password !== passwordConfirm) {
       setPasswordInputsMessage({
-        message: "Пароли не совпадают",
+        message: "Passwords do not match",
         error: true,
       });
       return;
@@ -133,66 +133,66 @@ const RegisterForm = () => {
       <p className="input_message">{emptyInputsError}</p>
       <Input
         id="email"
-        labelText="Эмейл:"
+        labelText="Email:"
         type="text"
-        placeholder="Укажите адрес электронной почты"
+        placeholder="Enter your email address"
         value={newUser.email}
         onChange={checkEmailInput}
         error={emailInputMessage.message}
       />
       <Input
         id="login"
-        labelText="Логин:"
+        labelText="Nickname:"
         type="text"
-        placeholder="Придумайте логин"
+        placeholder="Create a nickname"
         value={newUser.nickname}
         onChange={(e) => setNewUser({ ...newUser, nickname: e.target.value })}
         error={loginInputMessage.message}
       />
       <Input
         id="password"
-        labelText="Пароль:"
+        labelText="Password:"
         type="password"
-        placeholder="Придумайте новый пароль"
+        placeholder="Enter new password"
         value={newUser.password}
         onChange={(e) => setNewUser({ ...newUser, password: e.target.value })}
         error={passwordInputsMessage.message}
       />
       <Input
         id="passwordConfirm"
-        labelText="Повторите пароль:"
+        labelText="Confirm password:"
         type="password"
-        placeholder="Повторите новый пароль"
+        placeholder="Confirm new password"
         value={passwordConfirm}
         onChange={(e) => SetPasswordConfirm(e.target.value)}
         error={passwordInputsMessage.message}
       />
       <Input
         id="name"
-        labelText="Имя:"
+        labelText="First name:"
         type="text"
-        placeholder="Укажите ваше имя"
+        placeholder="Enter your name"
         value={newUser.firstName}
         onChange={(e) => setNewUser({ ...newUser, firstName: e.target.value })}
       />
       <Input
         id="surname"
-        labelText="Фамилия:"
+        labelText="Last name:"
         type="text"
-        placeholder="Укажите вашу фамилию"
+        placeholder="Enter your last name"
         value={newUser.lastName}
         onChange={(e) => setNewUser({ ...newUser, lastName: e.target.value })}
       />
       <Input
         id="birthday"
-        labelText="Дата рождения:"
+        labelText="Birthday:"
         type="date"
         value={newUser.birthday}
         onChange={(e) => setNewUser({ ...newUser, birthday: e.target.value })}
       />
       <div className="form-btn-container">
         <button onClick={register} onKeyDown={handleEnterEvent}>
-          Регистрация
+          Sign up
         </button>
       </div>
     </form>

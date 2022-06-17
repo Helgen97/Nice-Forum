@@ -27,11 +27,11 @@ const MainPage = () => {
   return (
     <main className="main-page">
       <MetaTags
-        title="Nice Forum - Форум приятного общения!"
+        title="Nice Forum - Forum of Nice Communication!"
         description={
-          "Главная страница форума. Здесь ты можешь поделится новостями, найти людей единомышленников и приятно провести время!"
+          "Nice forum home. Here you can share news, find like-minded people and have a good time!"
         }
-        keywords={"Форум, общение, разделы, дружба, новости"}
+        keywords={"Forum, speaking, sections, friendship, news"}
       />
 
       {sectionsList.map((section) => (

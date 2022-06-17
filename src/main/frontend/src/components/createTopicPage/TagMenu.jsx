@@ -68,7 +68,7 @@ const TagMenu = ({ setTags, unChooseTag, setError }) => {
 
   function checklimitSelectedTags() {
     if (chosenTags.length === 3) {
-      setError("Превышен лимит тегов!");
+      setError("Reached tag limit!");
       setTagName("");
       return true;
     } else {
@@ -98,13 +98,13 @@ const TagMenu = ({ setTags, unChooseTag, setError }) => {
 
   return (
     <div id="tag_menu" className="select-container__tag">
-      <label htmlFor="section">Теги:</label>
+      <label htmlFor="section">Tags:</label>
       <div className="tag__menu">
         <div className="tag__menu-input">
           <input
             type="text"
             id="tag_input"
-            placeholder="Укажите теги"
+            placeholder="Choose tags"
             readOnly
           />
         </div>
@@ -112,7 +112,7 @@ const TagMenu = ({ setTags, unChooseTag, setError }) => {
           <div className="tag__menu-dropdown__tag-search">
             <input
               type="text"
-              placeholder="Введите тег"
+              placeholder="Enter tag name"
               value={tagName}
               onChange={(e) => {
                 setTagName(e.target.value);
@@ -140,7 +140,7 @@ const TagMenu = ({ setTags, unChooseTag, setError }) => {
                 ""
               ) : (
                 <li onClick={createTag} className="dropdown-li">
-                  Создать: {tagName}
+                  Create: {tagName}
                 </li>
               )}
               {tagList.map((tag) => (

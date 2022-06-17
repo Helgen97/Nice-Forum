@@ -42,12 +42,12 @@ public class Configuration {
                 user.setEmail("drmegman@gmail.com");
                 user.setPassword(encoder.encode("1234"));
                 user.setNickname("Helgen");
-                user.setFirstName("Dima");
+                user.setFirstName("Dmytro");
                 user.setLastName("Donchenko");
                 user.setBirthday(new Date());
                 user.setRegistrationDate(new Date());
                 user.setRole(Role.ADMIN);
-                user.setNotified(true);
+                user.setNotified(false);
 
                 User user1 = new User();
                 user1.setEmail("mail");
@@ -61,52 +61,52 @@ public class Configuration {
                 user1.setNotified(true);
 
                 Section section = new Section();
-                section.setTitle("О форуме!");
-                section.setDescription("Здесь собрана вся информация по форуму");
+                section.setTitle("Forum news!");
+                section.setDescription("All information about forum!");
 
                 Section sectionTwo = new Section();
-                sectionTwo.setTitle("Разговоры");
-                sectionTwo.setDescription("Общение и знакомства.");
+                sectionTwo.setTitle("Speaking club");
+                sectionTwo.setDescription("Speaking and friends.");
 
                 Tag one = new Tag();
                 Tag two = new Tag();
                 Tag three = new Tag();
-                one.setTagName("Новости");
-                two.setTagName("Тест");
-                three.setTagName("Разработка");
+                one.setTagName("News");
+                two.setTagName("Test");
+                three.setTagName("Development");
 
                 tagRepository.saveAll(List.of(one, two, three));
 
                 Topic topic = new Topic();
-                topic.setTitle("Новости форума");
-                topic.setDescription("Тут наши новости");
+                topic.setTitle("Forum news");
+                topic.setDescription("Our last news");
                 topic.setSection(section);
-                topic.setText("Новости!\nФорум работает в тестовом режиме!\nПробуем и дорабатываем!");
+                topic.setText("News!\nTesting mode of forum!\nTrying and doing best!");
                 topic.setCreator(user);
                 topic.setDate(LocalDateTime.now());
                 topic.setTopicTags(new HashSet<>(Arrays.asList(one, two, three)));
 
                 Topic topicTwo = new Topic();
-                topicTwo.setTitle("Правила!");
-                topicTwo.setDescription("Правила общения на форуме!");
+                topicTwo.setTitle("Rules!");
+                topicTwo.setDescription("Speaking rules!");
                 topicTwo.setSection(section);
-                topicTwo.setText("Свод правил! \n 1. Без оскорблений! \n 2. Адекватные ники и названия тем!");
+                topicTwo.setText("Rules list! \n 1. No bad words! \n 2. Good nicknames and topic titles!");
                 topicTwo.setCreator(user);
                 topicTwo.setDate(LocalDateTime.now());
 
                 Topic topicThree = new Topic();
-                topicThree.setTitle("Знакомства");
-                topicThree.setDescription("Узнаем друг друга лучше!");
+                topicThree.setTitle("Meeting!");
+                topicThree.setDescription("Let make a step to each others!");
                 topicThree.setSection(sectionTwo);
-                topicThree.setText("Приветствую на форуме! Я тут главный!");
+                topicThree.setText("Hallo! I am principal here!!");
                 topicThree.setCreator(user);
                 topicThree.setDate(LocalDateTime.now());
 
                 Topic topicFour = new Topic();
-                topicFour.setTitle("Флудильня");
-                topicFour.setDescription("Разговоры ни о чём");
+                topicFour.setTitle("All and nothings");
+                topicFour.setDescription("Just speaking");
                 topicFour.setSection(sectionTwo);
-                topicFour.setText("Как ваши дела?");
+                topicFour.setText("How you doing?");
                 topicFour.setCreator(user);
                 topicFour.setDate(LocalDateTime.now());
 

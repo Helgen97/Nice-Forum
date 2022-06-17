@@ -37,18 +37,18 @@ const CommentFooter = ({ creatorID, edit, like, likesCount, del }) => {
       {isAuth && (
         <div className="like-btn-container" onClick={like}>
           <span className="like_counter">{likesCount}</span>
-          <button className="like-btn" title="Нравится"></button>
+          <button className="like-btn" title="Like"></button>
         </div>
       )}
       <div className="share-btn-container">
         <button
           className="share-btn"
           onClick={share}
-          title="Поделиться"
+          title="Share"
         ></button>
         <div className="share-menu">
           <div className="share-menu__title">
-            <p>Поделиться сообщением</p>
+            <p>Share</p>
           </div>
           <div>
             <input className="share_input" type="text" readOnly />
@@ -57,7 +57,7 @@ const CommentFooter = ({ creatorID, edit, like, likesCount, del }) => {
       </div>
       {isAuth && creatorID === currentUser.id && (
         <div className="edit-btn-container">
-          <button className="edit-btn" onClick={edit} title="Редактировать" />
+          <button className="edit-btn" onClick={edit} title="Edit" />
         </div>
       )}
       {isAuth && (
@@ -65,7 +65,7 @@ const CommentFooter = ({ creatorID, edit, like, likesCount, del }) => {
           <button
             className="reply-btn"
             onClick={reply}
-            title="Ответить"
+            title="Reply"
           ></button>
         </div>
       )}
@@ -76,7 +76,7 @@ const CommentFooter = ({ creatorID, edit, like, likesCount, del }) => {
             <button
               className="delete-btn"
               onClick={del}
-              title="Удалить"
+              title="Delete"
             ></button>
           </div>
         )}

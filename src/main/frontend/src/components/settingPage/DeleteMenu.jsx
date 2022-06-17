@@ -25,11 +25,11 @@ const DeleteMenu = ({ userId }) => {
   return (
     <div id="delete_menu" className="settings__panel-edit__block">
       <div className="settings__panel-edit__title">
-        <h3>Удаление аккаунта:</h3>
+        <h3>Delete account</h3>
       </div>
       <div className="form-btn-container">
         <button className="form-btn-delete" onClick={deleteAccount}>
-          Удалить
+          Delete
         </button>
       </div>
     </div>

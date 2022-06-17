@@ -14,13 +14,13 @@ const SearchResultTopic = ({ topic }) => {
       <div className="search__result-topic__content">
         <div className="search__result-topic__content-info">
           <p className="content-info__text">
-            Сообщений:<span className="content-info__inner-text">{topic.commentsAmount}</span>
+            Comments:<span className="content-info__inner-text">{topic.commentsAmount}</span>
           </p>
         </div>
         <div className="search__result-topic__content-info">
           <a href={"/user/" + topic.creatorId}>
             <p className="content-info__text">
-              Автор:<span className="content-info__inner-text">{topic.creatorNickName}</span>
+              Author:<span className="content-info__inner-text">{topic.creatorNickName}</span>
             </p>
           </a>
         </div>

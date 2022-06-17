@@ -39,13 +39,13 @@ const UserCard = ({ user, updateListOfUser }) => {
 
   return (
     <div className="user__card">
-      <p>Никнейм:</p>
+      <p>Nickname:</p>
       <span>{cardUser.nickname}</span>
-      <p>Емейл: </p>
+      <p>Email: </p>
       <span>{cardUser.email}</span>
-      <p>Текущая роль: </p>
+      <p>Current role: </p>
       <span>{cardUser.role}</span>
-      <p>Сменить роль:</p>
+      <p>Change role:</p>
       <div>
         <select id={selectID}>
           {USER_ROLES.map((role) =>
@@ -57,10 +57,10 @@ const UserCard = ({ user, updateListOfUser }) => {
         <button className="confirm-btn" onClick={update} />
       </div>
       <div>
-        <p>Удалить пользователя: </p>
+        <p>Delete user: </p>
         <button
           className="decline-btn"
-          title="Удалить"
+          title="Delete"
           onClick={delUser}
         ></button>
       </div>

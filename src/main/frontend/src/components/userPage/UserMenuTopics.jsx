@@ -36,7 +36,7 @@ const UserMenuTopics = ({ userId, nickname }) => {
   return (
     <div className="user-topics">
       <div className="user-content__head">
-        <h2>Созданые темы</h2>
+        <h2>Created topics</h2>
       </div>
 
       {userTopics.map((topic) => (
@@ -48,7 +48,7 @@ const UserMenuTopics = ({ userId, nickname }) => {
           className="btn"
           onClick={click}
         >
-          Больше тем...
+          More {nickname} topics
         </button>
       </div>
     </div>

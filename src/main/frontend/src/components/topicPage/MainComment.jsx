@@ -70,7 +70,7 @@ const MainComment = ({ topicId }) => {
   }
 
   function del() {
-    if (window.confirm("Удалить данную тему?")) {
+    if (window.confirm("Delete this topic?")) {
       TopicService.deleteTopic(topicId);
       window.location.replace("/section/" + topic.sectionId);
     }
@@ -88,10 +88,10 @@ const MainComment = ({ topicId }) => {
           topic.title +
           " - " +
           topic.sectionTitle +
-          " - Nice Forum - Форум приятного общения!"
+          " - Nice Forum - Forum of Nice Communication!"
         }
         description={topic.title + ". " + topic.description}
-        keywords={"Форум, общение, разделы, дружба, новости, " + topic.title}
+        keywords={"Forum, speaking, sections, friendship, news, " + topic.title}
       />
       <MainCommentHeader
         title={topic.title}

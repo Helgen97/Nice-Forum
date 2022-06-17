@@ -36,23 +36,23 @@ public class ServiceController {
         LOGGER.info(String.format("Checking is email '%s' free.", email));
 
         return userService.checkEmail(email)
-                ? new MessageResponse("Эмейл занят", true)
-                : new MessageResponse("Эмейл свободен", false);
+                ? new MessageResponse("Email is occupied", true)
+                : new MessageResponse("Email is free", false);
     }
 
     @PostMapping("/api/check/nickname")
     public MessageResponse checkNickname(String nickname) {
         LOGGER.info(String.format("Checking is nickname '%s' free.", nickname));
         return userService.checkNickname(nickname)
-                ? new MessageResponse("Ник занят", true)
-                : new MessageResponse("Ник свободен", false);
+                ? new MessageResponse("Nickname is occupied", true)
+                : new MessageResponse("Nickname is free", false);
     }
 
     @PostMapping("change/password")
     public MessageResponse changePassword(String oldPassword, String newPassword, @AuthenticationPrincipal CurrentUser currentUser) {
         LOGGER.info(String.format("Changing user %s password.", currentUser.getNickname()));
         return userService.changePassword(oldPassword, newPassword, currentUser.getNickname())
-                ? new MessageResponse("Пароль изменен", false)
-                : new MessageResponse("Пароль не совпадают", true);
+                ? new MessageResponse("Password changed", false)
+                : new MessageResponse("Password do not match", true);
     }
 }

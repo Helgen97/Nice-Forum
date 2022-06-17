@@ -36,7 +36,7 @@ const Section = ({ section }) => {
         <Topic topic={topic} key={topic.id} />
       ))}
       <div className="section__btn-container">
-        <a href={"/section/" + section.id} className="section__btn">К разделу</a>
+        <a href={"/section/" + section.id} className="section__btn">To section...</a>
       </div>
     </div>
   );

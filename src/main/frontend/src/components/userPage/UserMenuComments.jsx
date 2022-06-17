@@ -30,7 +30,7 @@ const UserMenuComments = ({ userId }) => {
   return (
     <div className="user-comments">
       <div className="user-content__head">
-        <h2>Последние сообщения</h2>
+        <h2>Latest comments</h2>
       </div>
 
       {userComments.map((comment) => (

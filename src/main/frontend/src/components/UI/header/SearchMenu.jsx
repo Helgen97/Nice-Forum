@@ -37,7 +37,7 @@ const SearchMenu = () => {
           />
         </div>
         <div className="search_menu__link-container">
-          <a href="/search" className="search_menu__link">расширеный поиск</a>
+          <a href="/search" className="search_menu__link">Advanced Search</a>
         </div>
       </div>
     </div>

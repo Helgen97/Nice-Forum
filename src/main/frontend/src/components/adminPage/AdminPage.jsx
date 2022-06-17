@@ -31,7 +31,7 @@ const AdminPage = () => {
     <main className="admin-page">
       <div className="settings">
         <div className="settings__title">
-          <h2>Админ панель</h2>
+          <h2>Admin panel</h2>
         </div>
         <div className="settings__panel">
           <div className="settings__panel-navigation">
@@ -41,10 +41,10 @@ const AdminPage = () => {
                 className="settings__panel-navigation-li active__menu"
                 onClick={sectionMenu}
               >
-                <span className="settings__panel-navigation_link">Новый раздел</span>
+                <span className="settings__panel-navigation_link">New section</span>
               </li>
               <li id="user_list" onClick={userListMenu} className="settings__panel-navigation-li">
-                <span className="settings__panel-navigation_link">Пользователи</span>
+                <span className="settings__panel-navigation_link">Users</span>
               </li>
             </ul>
           </div>

@@ -7,7 +7,7 @@ const Error = ({ error }) => {
         <p>{error}</p>
       </div>
       <div className="error_modal__recomendation">
-        <p>Пожалуйста перезагрузите страницу</p>
+        <p>Please reload the page and try again.</p>
       </div>
     </div>
   );

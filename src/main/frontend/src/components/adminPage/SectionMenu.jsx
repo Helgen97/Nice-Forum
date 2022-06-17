@@ -13,13 +13,13 @@ const SectionMenu = () => {
   const [createSection, isCreating, creatingError] = useFetching(async () => {
     const createdSection = await SectionService.createSection(newSection);
     setNewSection(createdSection);
-    setInputMessage("Раздел создан!");
+    setInputMessage("Section created");
   });
   const [inputMessage, setInputMessage] = useState("");
 
   function create() {
     if (newSection.name === "" || newSection.description === "") {
-      setInputMessage("Заполните пустые поля!");
+      setInputMessage("Fill in the empty fields!");
       return;
     }
     createSection();
@@ -34,22 +34,22 @@ const SectionMenu = () => {
       className="settings__panel-edit__block settings__panel-edit__block-active"
     >
       <div className="settings__panel-edit__title">
-        <h3>Создать новый раздел:</h3>
+        <h3>Create new section:</h3>
       </div>
       <Input
         id={"section"}
-        labelText={"Название раздела:"}
+        labelText={"Section title:"}
         type={"text"}
-        placeholder={"Введите название"}
+        placeholder={"Enter section title"}
         value={newSection.name}
         onChange={(e) => setNewSection({ ...newSection, name: e.target.value })}
         error={inputMessage}
       />
       <Input
         id={"description"}
-        labelText={"Описание раздела:"}
+        labelText={"Section description:"}
         type={"text"}
-        placeholder={"Введите описание"}
+        placeholder={"Enter description"}
         value={newSection.description}
         onChange={(e) =>
           setNewSection({ ...newSection, description: e.target.value })
@@ -57,7 +57,7 @@ const SectionMenu = () => {
       />
       <div className="form-btn-container">
         <button className="form-btn" onClick={create}>
-          Создать
+          Create
         </button>
       </div>
     </div>

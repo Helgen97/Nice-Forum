@@ -7,7 +7,7 @@ const UserMenuActiveMenu = () => {
   const { isAuth, currentUser } = useAuth();
 
   const nonAuthUser = {
-    nickname: "Выполните вход",
+    nickname: "Please sign in",
     firstName: "",
     lastName: "",
   };
@@ -20,19 +20,19 @@ const UserMenuActiveMenu = () => {
           <UserActiveMenuButton
             name="profile"
             alt="profile_ico"
-            text="Профиль"
+            text=" Profile"
             link={"/user/" + currentUser.id}
           />
           <UserActiveMenuButton
             name="settings"
             alt="settings_ico"
-            text="Настройки"
+            text=" Settings"
             link="/settings"
           />
           <UserActiveMenuButton
             name="logout"
             alt="logout_ico"
-            text="Выход"
+            text=" Logout"
             link="/logout"
           />
         </div>
@@ -48,13 +48,13 @@ const UserMenuActiveMenu = () => {
           <UserActiveMenuButton
             name="login"
             alt="login_ico"
-            text="Вход"
+            text=" Sign in"
             link="/signin"
           />
           <UserActiveMenuButton
             name="register"
             alt="register_ico"
-            text="Регистрация"
+            text=" Sign up"
             link="/register"
           />
         </div>

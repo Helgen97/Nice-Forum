@@ -6,15 +6,15 @@ const RegisterPage = () => {
   return (
     <main className="registration-page">
       <MetaTags
-        title={"Регистрация - Nice Forum - форум приятного общения!"}
+        title={"Sign up - Nice Forum - Forum of Nice Communication!"}
         description={
-          "Регистрация на форум. Создай свой профиль и начните общение, поделись новостями и заведи друзей"
+          "Forum sign up. Create your profile and start chatting, share news and find new friends"
         }
-        keywords={"Форум, общение, разделы, дружба, вход, авторизация"}
+        keywords={"Forum, speaking, sections, friendship, registration, sign up"}
       />
         <div className="form">
           <div className="form__title">
-            <h2>Регистрация</h2>
+            <h2>Sign up</h2>
           </div>
           <RegisterForm />
         </div>

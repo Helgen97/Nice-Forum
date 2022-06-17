@@ -6,37 +6,40 @@ const AboutPage = () => {
   return (
     <main className="about">
       <MetaTags
-        title={"Про форум - Nice Forum - форум приятного общения!"}
+        title={"About - Nice Forum - Forum of Nice Communication"}
         description={
-          "Про форум. Здесь ты можешь почитать о том, что это за форум, кто сделал, и для чего!"
+          "About forum. At this page you can read about this forum, who created it and why."
         }
-        keywords={"Форум, общение, разделы, дружба, о форуме, создатель"}
+        keywords={"Forum, speaking, sections, friendship, about, creator"}
       />
 
       <div className="about-page">
         <div className="about__title">
-          <h2>Информация о форуме</h2>
+          <h2>About forum</h2>
         </div>
         <div className="about__details">
           <p className="about__details-desctription">
-            <span className="about__details-title">Nice-Forum</span> - это дипломный выпускной проект IT курсов.
+            <span className="about__details-title">Nice-Forum</span> - is a
+            graduate project of IT courses.
           </p>
           <p className="about__details-desctription">
-            <span className="about__details-title">Цель проекта</span> - показать практические навыки по
-            пройденому материалу.
+            <span className="about__details-title">Project Goal</span> - is show
+            practical skills on the passed material.
           </p>
           <p className="about__details-desctription">
-            <span className="about__details-title">Идея проекта</span> - создать простую версию интернет-форума
-            где любой желающий смог бы обсуждать, делится, и обмениватся любой
-            информацией на любые темы.
+            <span className="about__details-title">Idea of the Project</span> -
+            is create simple version of the internet-forum, where anyone could
+            discuss, share and exchange any information on any topics.
           </p>
-          <p className="about__details-desctription">Проект был создан мной единолично.</p>
           <p className="about__details-desctription">
-            <span className="about__details-title">Автор проекта</span> -{" "}
-            <span className="about__details-author">Донченко Дмитрий.</span>
+            The project was created by me alone.
+          </p>
+          <p className="about__details-desctription">
+            <span className="about__details-title">Project author</span> -{" "}
+            <span className="about__details-author">Donchenko Dmytro.</span>
           </p>
           <div className="about__details-links">
-            <span>Как со мной связаться? - </span>
+            <span>How to contact me? - </span>
             <a href="mailto:drmegman@gmail.com" className="mail" />
             <a
               href="https://linkedin.com/in/dmytrodonchenko"
@@ -46,13 +49,17 @@ const AboutPage = () => {
           </div>
         </div>
         <div className="about__footer">
-          <h3>Администратор форума</h3>
+          <h3>Forum Administrator</h3>
           <div>
             <a className="about__footer-content" href="/user/1">
-              <img src={Avatar} alt="admin" className="about__footer-content_avatar"/>
+              <img
+                src={Avatar}
+                alt="admin"
+                className="about__footer-content_avatar"
+              />
               <div>
                 <p className="about__footer-content_nickname">Admin</p>
-                <p>Дмитрий Донченко</p>
+                <p>Dmytro Donchenko</p>
               </div>
             </a>
           </div>

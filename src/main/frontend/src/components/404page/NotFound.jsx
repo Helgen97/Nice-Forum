@@ -7,10 +7,10 @@ const NotFound = () => {
           <p>404</p>
         </div>
         <div className="error_page__text">
-          <p>Упс, страница не найдена...</p>
+          <p>Oops, page not found...</p>
         </div>
         <div className="error_page__home-btn">
-          <a href="/" className="error_page__home-btn_link">На главную...</a>
+          <a href="/" className="error_page__home-btn_link">Home...</a>
         </div>
     </main>
   );

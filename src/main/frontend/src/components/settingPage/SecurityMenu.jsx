@@ -63,37 +63,37 @@ const SecurityMenu = () => {
   return (
     <div id="security_menu" className="settings__panel-edit__block">
       <div className="settings__panel-edit__title">
-        <h3>Сменить пароль:</h3>
+        <h3>Change password:</h3>
       </div>
       <p className="input_message">{message.message}</p>
       <Input
         id="old_password"
-        labelText="Старый пароль:"
+        labelText="Old password:"
         type="password"
-        placeholder="Введите текущий пароль"
+        placeholder="Enter current password"
         value={oldPassword}
         onChange={(e) => setOldPassword(e.target.value)}
       />
       <Input
         id="new_password"
-        labelText="Новый пароль:"
+        labelText="New password:"
         type="password"
-        placeholder="Придумайте новый пароль"
+        placeholder="Create new password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
         error={emptyInputsError.message || samePasswordsError.message}
       />
       <Input
         id="new_password_confirm"
-        labelText="Повторите новый пароль:"
+        labelText="Confirm password:"
         type="password"
-        placeholder="Повторите новый пароль"
+        placeholder="Confirm new password"
         value={newPasswordConfirm}
         onChange={(e) => setNewPasswordConfirm(e.target.value)}
       />
       <div className="form-btn-container">
         <button className="form-btn" onClick={change}>
-          Изменить
+          Change password
         </button>
       </div>
     </div>

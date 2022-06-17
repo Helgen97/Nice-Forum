@@ -35,7 +35,7 @@ const CreateForm = () => {
     e.preventDefault();
 
     if (checkInputs()) {
-      setInputsError("Заполните пустые поля!");
+      setInputsError("Fill in the empty fields!");
       return;
     }
     setInputsError("");
@@ -79,22 +79,22 @@ const CreateForm = () => {
   return (
     <div className="form">
       <div className="form__title">
-        <h2>Создать новую тему</h2>
+        <h2>Create new topic</h2>
       </div>
       <form>
         <Input
           id={"topic_name"}
-          labelText={"Название:"}
+          labelText={"Title:"}
           type={"text"}
-          placeholder={"Введите название темы"}
+          placeholder={"Enter topic title..."}
           value={newTopic.title}
           onChange={(e) => setNewTopic({ ...newTopic, title: e.target.value })}
         />
         <Input
           id={"topic_desctription"}
-          labelText={"Краткое описание:"}
+          labelText={"Description"}
           type={"text"}
-          placeholder={"Введите описание темы"}
+          placeholder={"Enter topic description..."}
           value={newTopic.description}
           onChange={(e) =>
             setNewTopic({ ...newTopic, description: e.target.value })
@@ -119,7 +119,7 @@ const CreateForm = () => {
         />
 
         <div className="form-btn-container">
-          <button onClick={create}>Создать</button>
+          <button onClick={create}>Create</button>
         </div>
       </form>
     </div>

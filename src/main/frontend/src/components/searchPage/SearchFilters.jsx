@@ -45,14 +45,14 @@ const SearchFilters = ({ applyFilters, params, setParams }) => {
   return (
     <div className="search__filters">
       <div className="search__filters-title">
-        <h3>Фильтры поиска</h3>
+        <h3>Search filters</h3>
         <button className="search__filters-title-btn" onClick={openFilterMenu}></button>
       </div>
       <Input
         id={"author"}
-        labelText={"Автор:"}
+        labelText={"Author:"}
         type={"text"}
-        placeholder={"Укажите автора"}
+        placeholder={"Author nickname"}
         value={params.author}
         onChange={(e) => setParams({ ...params, author: e.target.value })}
       />
@@ -65,18 +65,18 @@ const SearchFilters = ({ applyFilters, params, setParams }) => {
 
       <div className="search__filters-date">
         <div>
-          <label>Дата:</label>
+          <label>Date:</label>
         </div>
         <Input
           id={"date_start"}
-          labelText={"Начиная с:"}
+          labelText={"Starts from:"}
           type="date"
           value={params.from}
           onChange={(e) => setParams({ ...params, from: e.target.value })}
         />
         <Input
           id={"date_end"}
-          labelText={"До (включая):"}
+          labelText={"Up to (including):"}
           type={"date"}
           value={params.to}
           onChange={(e) => setParams({ ...params, to: e.target.value })}
@@ -84,10 +84,10 @@ const SearchFilters = ({ applyFilters, params, setParams }) => {
       </div>
       <div className="form-btn-container">
         <button className="form-btn" onClick={apply}>
-          Применить
+          Apply
         </button>
         <button className="form-btn" onClick={clean}>
-          Сбросить
+          Reset
         </button>
       </div>
     </div>

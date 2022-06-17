@@ -76,13 +76,13 @@ const SearchTagMenu = ({ setTag, unchooseTag, tags = "" }) => {
 
   return (
     <div id="tag_menu" className="select-container__tag">
-      <label htmlFor="section">Теги:</label>
+      <label htmlFor="section">Tags:</label>
       <div className="tag__menu">
         <div className="tag__menu-input">
           <input
             type="text"
             id="tag_input"
-            placeholder="Укажите теги"
+            placeholder="Select tags"
             value={chosenTags}
             readOnly
           />
@@ -91,7 +91,7 @@ const SearchTagMenu = ({ setTag, unchooseTag, tags = "" }) => {
           <div className="tag__menu-dropdown__tag-search">
             <input
               type="text"
-              placeholder="Введите тег"
+              placeholder="Enter tag name"
               value={tagName}
               onChange={(e) => {
                 setTagName(e.target.value);

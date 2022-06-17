@@ -33,44 +33,44 @@ const ProfileMenu = ({ currentUser }) => {
       className="settings__panel-edit__block settings__panel-edit__block-active"
     >
       <div className="settings__panel-edit__title">
-        <h3>Личная информация:</h3>
+        <h3>Account</h3>
       </div>
       <Input
         id={"email"}
         type={"text"}
-        labelText={"Эмейл: "}
-        placeholder={"Введите новую почту"}
+        labelText={"Email: "}
+        placeholder={"Enter new email"}
         value={user.email || ""}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
       />
       <Input
         id={"name"}
         type={"text"}
-        labelText={"Имя:"}
-        placeholder={"Введите новое имя"}
+        labelText={"First name:"}
+        placeholder={"Enter new name"}
         value={user.firstName || ""}
         onChange={(e) => setUser({ ...user, firstName: e.target.value })}
       />
       <Input
         id={"surname"}
         type={"text"}
-        labelText={"Фамилия:"}
-        placeholder={"Введите новую фамилию"}
+        labelText={"Last name:"}
+        placeholder={"Enter new last name"}
         value={user.lastName || ""}
         onChange={(e) => setUser({ ...user, lastName: e.target.value })}
       />
       <Input
         id={"birthday"}
         type={"date"}
-        labelText={"Дата рождения:"}
-        placeholder={"Введите новую почту"}
+        labelText={"Birhday:"}
+        placeholder={""}
         value={user.birthday || ""}
         onChange={(e) => setUser({ ...user, birthday: e.target.value })}
       />
 
       <div className="form-btn-container">
         <button className="form-btn" onClick={updateUser}>
-          Сохранить
+          Save changes
         </button>
       </div>
     </div>

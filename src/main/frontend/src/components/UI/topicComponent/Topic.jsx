@@ -12,13 +12,13 @@ const Topic = ({ topic }) => {
         </a>
       </div>
       <div className="section__topic-column">
-        <p className="section__topic-column__title">Сообщений</p>
+        <p className="section__topic-column__title">Comments</p>
         <p className="section__topic-column__description">
           {topic.commentsAmount}
         </p>
       </div>
       <div className="section__topic-column">
-        <p className="section__topic-column__title">Автор</p>
+        <p className="section__topic-column__title">Author</p>
         {topic.creatorId !== 0 ? (
           <a
             href={"/user/" + topic.creatorId}

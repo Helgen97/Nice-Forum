@@ -63,7 +63,7 @@ const TopicComment = ({ comment, index, removeComment, isAuth }) => {
   }
 
   function del() {
-    if (window.confirm("Удалить данный коментарий?")) {
+    if (window.confirm("Delete comment?")) {
       removeComment(comment);
       CommentService.deleteComment(currentComment.id);
     }

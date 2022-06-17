@@ -20,7 +20,7 @@ const UserMenuTitle = ({ nickname, userID }) => {
       </div>
       {isAuth && Number(userID) === currentUser.id && (
         <div className="setting-btn_container">
-          <a href="/settings" className="setting-btn" title="К настройкам" />
+          <a href="/settings" className="setting-btn" title="To settings" />
         </div>
       )}
     </div>

@@ -5,13 +5,13 @@ const NavigationMenu = () => {
     <div className="navigation__menu">
       <ul className="navigation__menu-list">
         <li className="navigatiom__menu-list__li">
-          <a href="/" className="navigatiom__menu-list__li-link">Главная</a>
+          <a href="/" className="navigatiom__menu-list__li-link">Home</a>
         </li>
         <li className="navigatiom__menu-list__li">
-          <a href="/create" className="navigatiom__menu-list__li-link">Создать тему</a>
+          <a href="/create" className="navigatiom__menu-list__li-link">Create topic</a>
         </li>
         <li className="navigatiom__menu-list__li">
-          <a href="/about" className="navigatiom__menu-list__li-link">Про форум</a>
+          <a href="/about" className="navigatiom__menu-list__li-link">About</a>
         </li>
       </ul>
     </div>

@@ -44,30 +44,30 @@ const SettingsPage = () => {
       <MetaTags
         title={
           currentUser.nickname +
-          " - Настройки профиля - Nice Forum - Форум приятого общения!"
+          " - Profile Settings - Nice Forum - Forum of Nice Communication!"
         }
         description={
           currentUser.nickname +
-          " - Настройки профиля - Nice Forum - Форум приятого общения!"
+          " - Profile Settings - Nice Forum - Forum of Nice Communication!"
         }
-        keywords="Форум, общение, разделы, дружба, новости, личный кабинет, настройки, изменение данных"
+        keywords="Forum, speaking, sections, friendship, news, profile, settings, change profile"
       />
 
       <div className="settings">
         <div className="settings__title">
-          <h2 className="settings_header">Настройки профиля</h2>
+          <h2 className="settings_header">Profile settings</h2>
         </div>
         <div className="settings__panel">
           <div className="settings__panel-navigation">
             <ul>
               <li id="user" className="settings__panel-navigation-li active__menu" onClick={userMenu}>
-                <span className="settings__panel-navigation_link">Учетная запись</span>
+                <span className="settings__panel-navigation_link">Account</span>
               </li>
               <li id="security" onClick={securityMenu} className="settings__panel-navigation-li">
-                <span className="settings__panel-navigation_link">Безопасность</span>
+                <span className="settings__panel-navigation_link">Security</span>
               </li>
               <li id="delete" onClick={deleteMenu} className="settings__panel-navigation-li">
-                <span className="settings__panel-navigation_link">Удалить аккаунт</span>
+                <span className="settings__panel-navigation_link">Delete profile</span>
               </li>
             </ul>
           </div>

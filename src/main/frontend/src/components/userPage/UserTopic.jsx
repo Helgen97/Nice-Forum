@@ -10,7 +10,7 @@ const UserTopic = ({ topic = {} }) => {
         </a>
       </div>
       <div className="user-content__panel-block">
-        <p className="user-content__panel-title">Сообщений</p>
+        <p className="user-content__panel-title">Comments</p>
         <p className="user-content__panel-description">
           {topic.commentsAmount}
         </p>
