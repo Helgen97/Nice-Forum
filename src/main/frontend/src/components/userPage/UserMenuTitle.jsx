@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import avatar from "../../img/avatar.svg";
 
-const UserMenuTitle = ({ nickname, userID }) => {
+const UserMenuTitle = ({ nickname, userID, avatarUrl }) => {
   const [isAuth, setAuth] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
@@ -12,8 +12,8 @@ const UserMenuTitle = ({ nickname, userID }) => {
 
   return (
     <div className="user-menu__title">
-      <div className="user-menu__title-avatar">
-        <img src={avatar} alt={nickname} />
+      <div>
+        <img src={avatarUrl && avatarUrl !== "Default" ? avatarUrl : avatar}  alt={nickname} className="user-menu__title-avatar"/>
       </div>
       <div className="user-menu__title-nickname">
         <h2>{nickname}</h2>

@@ -72,6 +72,7 @@ const SearchFilters = ({ applyFilters, params, setParams }) => {
             id={"date_start"}
             labelText={"Starts from:"}
             type="date"
+            placeholder={params.from === "" ? "Enter date from" : ""}
             value={params.from}
             onChange={(e) => setParams({ ...params, from: e.target.value })}
           />
@@ -79,6 +80,7 @@ const SearchFilters = ({ applyFilters, params, setParams }) => {
             id={"date_end"}
             labelText={"Up to (including):"}
             type={"date"}
+            placeholder={params.to === "" ? "Enter date up to" : ""}
             value={params.to}
             onChange={(e) => setParams({ ...params, to: e.target.value })}
           />

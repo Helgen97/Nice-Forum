@@ -44,7 +44,8 @@ const UserMenu = () => {
     <div>
       <MetaTags
         title={
-          user.nickname + " - Profile - Nice Forum - Forum of Nice Communication!"
+          user.nickname +
+          " - Profile - Nice Forum - Forum of Nice Communication!"
         }
         description={
           "Profile of " +
@@ -59,7 +60,11 @@ const UserMenu = () => {
       />
 
       <div className="user-menu">
-        <UserMenuTitle nickname={user.nickname} userID={userID} />
+        <UserMenuTitle
+          nickname={user.nickname}
+          userID={userID}
+          avatarUrl={user.avatarUrl}
+        />
 
         <UserMenuInformation
           firstName={user.firstName}
@@ -79,7 +84,7 @@ const UserMenu = () => {
 
       <UserMenuTopics userId={user.id} nickname={user.nickname} />
 
-      <UserMenuComments userId={user.id}/>
+      <UserMenuComments userId={user.id} />
     </div>
   );
 };

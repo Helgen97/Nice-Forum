@@ -86,7 +86,7 @@ public class SearchSpecification implements Specification<Topic> {
                     subquery.select(subqueryRoot);
 
                     subquery.where(criteriaBuilder.and(criteriaBuilder.equal(root.get("id"), subqueryRoot.join("tagTopics").get("id")),
-                            criteriaBuilder.like(criteriaBuilder.lower(criteriaBuilder.lower(subqueryRoot.get(criteria.getKey()))), "%" + criteria.getValue().toString().toLowerCase() + "%")));
+                            criteriaBuilder.like(criteriaBuilder.lower(criteriaBuilder.lower(subqueryRoot.get(criteria.getKey()))), criteria.getValue().toString().toLowerCase())));
 
                     return criteriaBuilder.exists(subquery);
                 }

@@ -1163,6 +1163,12 @@ textarea {
     .user-menu__title {
         @include flexible();
         padding: 0.5rem;
+
+        .user-menu__title-avatar {
+            max-width: 80px;
+            max-height: 80px;
+            border-radius: 40px;
+        }
     }
 
     .user-menu__title-nickname {
