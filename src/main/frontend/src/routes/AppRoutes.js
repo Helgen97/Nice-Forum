@@ -17,7 +17,7 @@ export const AppRoutes = [
   { path: "/", element: <MainPage />, exact: true },
   { path: "/signin", element: <LoginPage />, exact: true },
   { path: "/register", element: <RegisterPage />, exact: true },
-  { path: "/logout", element: <LogoutPage />, exact: true },
+  { path: "/signout", element: <LogoutPage />, exact: true },
   { path: "/create", element: <CreateTopicPage />, exact: true },
   { path: "/about", element: <AboutPage />, exact: true },
   { path: "/search", element: <SearchPage />, exact: true},

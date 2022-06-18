@@ -33,7 +33,7 @@ const UserMenuActiveMenu = () => {
             name="logout"
             alt="logout_ico"
             text=" Logout"
-            link="/logout"
+            link="/signout"
           />
         </div>
       </div>
