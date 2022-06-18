@@ -5,13 +5,13 @@ import MetaTags from "../UI/meta/MetaTags";
 import ProfileMenu from "./ProfileMenu";
 import SecurityMenu from "./SecurityMenu";
 import DeleteMenu from "./DeleteMenu";
-import PermissionDeniedBlock from '../UI/permissionDeniedPage/PermissionDeniedBlock';
+import PermissionDeniedBlock from "../UI/permissionDeniedPage/PermissionDeniedBlock";
 import AvatarMenu from "./AvatarMenu";
 
 const SettingsPage = () => {
   const { isAuth, currentUser } = useAuth();
 
-  if(!isAuth) return <PermissionDeniedBlock />
+  if (!isAuth) return <PermissionDeniedBlock />;
 
   function userMenu() {
     $("#user").addClass("active__menu");
@@ -34,7 +34,6 @@ const SettingsPage = () => {
     $("#delete").removeClass("active__menu");
     $("#delete_menu").removeClass("settings__panel-edit__block-active");
   }
-
 
   function securityMenu() {
     $("#user").removeClass("active__menu");
@@ -80,17 +79,39 @@ const SettingsPage = () => {
         <div className="settings__panel">
           <div className="settings__panel-navigation">
             <ul>
-              <li id="user" className="settings__panel-navigation-li active__menu" onClick={userMenu}>
+              <li
+                id="user"
+                className="settings__panel-navigation-li active__menu"
+                onClick={userMenu}
+              >
                 <span className="settings__panel-navigation_link">Account</span>
               </li>
-              <li id="avatar" onClick={avatarMenu} className="settings__panel-navigation-li">
-                <span className="settings__panel-navigation_link">Change avatar</span>
+              <li
+                id="avatar"
+                onClick={avatarMenu}
+                className="settings__panel-navigation-li"
+              >
+                <span className="settings__panel-navigation_link">
+                  Change avatar
+                </span>
               </li>
-              <li id="security" onClick={securityMenu} className="settings__panel-navigation-li">
-                <span className="settings__panel-navigation_link">Security</span>
+              <li
+                id="security"
+                onClick={securityMenu}
+                className="settings__panel-navigation-li"
+              >
+                <span className="settings__panel-navigation_link">
+                  Security
+                </span>
               </li>
-              <li id="delete" onClick={deleteMenu} className="settings__panel-navigation-li">
-                <span className="settings__panel-navigation_link">Delete profile</span>
+              <li
+                id="delete"
+                onClick={deleteMenu}
+                className="settings__panel-navigation-li"
+              >
+                <span className="settings__panel-navigation_link">
+                  Delete profile
+                </span>
               </li>
             </ul>
           </div>

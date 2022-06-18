@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import UserService from "../../API/UserService";
 import { useFetching } from "../../hooks/useFetching";
 import Error from "../UI/errorBanner/Error";
@@ -6,7 +6,7 @@ import Input from "../UI/input/Input";
 import Loader from "../UI/loader/Loader";
 
 const AvatarMenu = () => {
-  const [avatarUrl, setAvatarUrl] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("Default");
   const [errorMessage, setErrorMessage] = useState("");
   const [changeAvatar, isLoading, changingError] = useFetching(
     async (avatarUrl) => {
@@ -14,10 +14,6 @@ const AvatarMenu = () => {
       setAvatarUrl(responce);
     }
   );
-
-  useEffect(() => {
-
-  }, [])
 
   function change() {
     let urlPattern = /\b(https?:\/\/\S*\b)/g;
