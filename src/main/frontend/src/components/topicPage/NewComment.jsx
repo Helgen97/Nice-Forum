@@ -23,7 +23,7 @@ const NewComment = ({ topicId, addNewComment }) => {
   }, []);
 
   function create() {
-    if(newCommentText.length > maxTextLength) return;
+    if (newCommentText.length > maxTextLength) return;
     createComment({
       text: newCommentText,
       commentTopic: {
@@ -42,7 +42,11 @@ const NewComment = ({ topicId, addNewComment }) => {
     <div className="new__comment">
       <div>
         <div className="comment__content">
-          <CommentCreator creatorNickName={currentUser.nickname} />
+          <CommentCreator
+            creatorNickName={currentUser.nickname}
+            creatorID={currentUser.id}
+            avatarUrl={currentUser.avatarUrl}
+          />
           <NewCommentContent
             value={newCommentText}
             onChange={(e) => setNewCommentText(e.target.value)}

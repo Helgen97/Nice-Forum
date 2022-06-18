@@ -102,6 +102,7 @@ const MainComment = ({ topicId }) => {
         <CommentCreator
           creatorNickName={topic.creatorNickName}
           creatorID={topic.creatorId}
+          avatarUrl={topic.creatorAvatarUrl}
         />
         {isAuth && (
           <CommentEdit

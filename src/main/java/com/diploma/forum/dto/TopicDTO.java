@@ -25,6 +25,7 @@ public class TopicDTO {
     private String sectionTitle;
     private Long creatorId;
     private String creatorNickName;
+    private String creatorAvatarUrl;
     private Set<TagDTO> topicTags;
 
     private TopicDTO(Long id,
@@ -38,6 +39,7 @@ public class TopicDTO {
                      String sectionTitle,
                      Long creatorId,
                      String creatorNickName,
+                     String creatorAvatarUrl,
                      Set<TagDTO> topicTags
     ) {
         this.id = id;
@@ -51,6 +53,7 @@ public class TopicDTO {
         this.sectionTitle = sectionTitle;
         this.creatorId = creatorId;
         this.creatorNickName = creatorNickName;
+        this.creatorAvatarUrl = creatorAvatarUrl;
         this.topicTags = topicTags;
     }
 
@@ -67,6 +70,7 @@ public class TopicDTO {
                 topic.getSection().getTitle(),
                 topic.getCreator() != null ? topic.getCreator().getId() : 0,
                 topic.getCreator() != null ? topic.getCreator().getNickname() : "Deleted",
+                topic.getCreator() != null ? topic.getCreator().getAvatarUrl() : "Default",
                 tagListOf(topic.getTopicTags()));
     }
 

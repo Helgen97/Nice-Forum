@@ -40,6 +40,9 @@ public class User {
     @Column(name = "Nickname", unique = true)
     private String nickname;
 
+    @Column(name = "AvatarUrl")
+    private String avatarUrl = "Default";
+
     @Column(name = "Notified")
     private boolean isNotified;
 

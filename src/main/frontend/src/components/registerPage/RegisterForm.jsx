@@ -186,6 +186,7 @@ const RegisterForm = () => {
       <Input
         id="birthday"
         labelText="Birthday:"
+        placeholder={newUser.birthday === "" ? "Enter birthday" : ""}
         type="date"
         value={newUser.birthday}
         onChange={(e) => setNewUser({ ...newUser, birthday: e.target.value })}

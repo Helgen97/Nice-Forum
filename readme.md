@@ -20,10 +20,21 @@ It is a forum where you can post your topics, make comments and speak with other
     git@github.com:Helgen97/Nice-Forum.git
     ```
 * Open project in your IDE.
-* Launch ``main`` method in ``ForumApplication class``
+* Run 
+  ```
+  mvn clean
+  mvn spring-boot:run
+  ```
 * Or download ForumApplication.jar and open manually.
-* After application starts, go to ``http://localhost:8081``
+* After application starts, go to ``http://localhost:8080``
 * Enjoy
+
+## Rest API documentation
+After launching application, you can go to:
+```
+http://localhost:8080/swagger-ui/index.html
+```
+and see Rest API documentation by Swagger-UI
 
 ## What I used for this project? 
 
@@ -50,6 +61,7 @@ It is a forum where you can post your topics, make comments and speak with other
 
 * HTML/CSS
 * Javascript
+* React
 ***
 
 ## Special thanks:

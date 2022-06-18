@@ -2,13 +2,14 @@ import React from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import MetaImage from "../../../img/MetaImage.png";
 
-const MetaTags = ({ title, description, keywords }) => {
+const MetaTags = ({ title, description, keywords, noRobots }) => {
   const MetaImgURL = "http://" + window.location.host;
 
   return (
     <HelmetProvider>
       <Helmet>
         <title>{title}</title>
+        {noRobots && <meta name="robots" content="noindex" />}
         <meta name="description" content={description} />
         <meta name=" keywords" content={keywords} />
 

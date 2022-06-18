@@ -15,6 +15,7 @@ public class CurrentUser {
     private String firstName;
     private String lastName;
     private String nickname;
+    private String avatarUrl;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
@@ -26,6 +27,7 @@ public class CurrentUser {
             String nickname,
             String firstName,
             String lastName,
+            String avatarUrl,
             Date birthday,
             Role role
     ) {
@@ -34,6 +36,7 @@ public class CurrentUser {
         this.nickname = nickname;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.avatarUrl = avatarUrl;
         this.birthday = birthday;
         this.role = role;
     }
@@ -45,6 +48,7 @@ public class CurrentUser {
                 user.getNickname(),
                 user.getFirstName(),
                 user.getLastName(),
+                user.getAvatarUrl(),
                 user.getBirthday(),
                 user.getRole());
     }

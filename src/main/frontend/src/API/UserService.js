@@ -5,11 +5,14 @@ export default class UserService {
   static token = localStorage.getItem("jwt");
 
   static async getAllUsers(page, limit) {
-    const response = await axios.get(this.API_URL + "?page=" + page + "&limit=" + limit, {
-      headers: {
-        Authorization: this.token,
-      },
-    });
+    const response = await axios.get(
+      this.API_URL + "?page=" + page + "&limit=" + limit,
+      {
+        headers: {
+          Authorization: this.token,
+        },
+      }
+    );
     return response.data;
   }
 
@@ -33,11 +36,15 @@ export default class UserService {
   }
 
   static async updateUserRole(userId, role) {
-    const response = await axios.put(this.API_URL + "role/" + userId + "?role=" + role, "", {
-      headers: {
-        Authorization: this.token,
-      },
-    });
+    const response = await axios.put(
+      this.API_URL + "role/" + userId + "?role=" + role,
+      "",
+      {
+        headers: {
+          Authorization: this.token,
+        },
+      }
+    );
     return response.data;
   }
 
@@ -73,5 +80,18 @@ export default class UserService {
       }
     );
     return response.data;
+  }
+
+  static async changeAvatarUrl(avatarUrl) {
+    const responce = await axios.post(
+      "http://localhost:8080/change/avatar?url=" + avatarUrl,
+      "",
+      {
+        headers: {
+          Authorization: this.token,
+        },
+      }
+    );
+    return responce.data;
   }
 }

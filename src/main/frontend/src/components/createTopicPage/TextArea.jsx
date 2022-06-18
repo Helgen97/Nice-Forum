@@ -6,7 +6,7 @@ const TextArea = ({ value = "", onChange, maxTextLength }) => {
       <label htmlFor="textarea">Text:</label>
       <div className="form__topic-text">
         <div className="form__topic-text__title">
-          <p>Text modification in development</p>
+          <p>Use BBCode for text modification</p>
         </div>
         <div>
           <textarea

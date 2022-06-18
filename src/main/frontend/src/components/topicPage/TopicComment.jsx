@@ -78,6 +78,7 @@ const TopicComment = ({ comment, index, removeComment, isAuth }) => {
         <CommentCreator
           creatorNickName={currentComment.creatorNickName}
           creatorID={currentComment.creatorId}
+          avatarUrl={currentComment.creatorAvatarUrl}
         />
         {isAuth && (
           <CommentEdit

@@ -1,7 +1,7 @@
 import React from "react";
 import Avatar from "../../img/avatar.svg";
 
-const CommentCreator = ({ creatorNickName, creatorID }) => {
+const CommentCreator = ({ creatorNickName, creatorID, avatarUrl}) => {
   return (
     <div className="comment__content-user_panel">
       <div className="comment__content-username">
@@ -14,7 +14,7 @@ const CommentCreator = ({ creatorNickName, creatorID }) => {
         )}
       </div>
       <div>
-        <img src={Avatar} alt={creatorNickName} />
+        <img src={avatarUrl && avatarUrl !== "Default" ? avatarUrl : Avatar} alt={creatorNickName} className="comment__content-avatar"/>
       </div>
     </div>
   );

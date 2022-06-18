@@ -29,6 +29,12 @@ a {
     transition: all 0.2s linear;
 }
 
+p {
+    a {
+        text-decoration: underline
+    }
+}
+
 ul {
     padding: 0;
     margin: 0;
@@ -90,7 +96,7 @@ input[type="date"] {
 
     @media screen and (max-width: $tablet) {
         &::after {
-            content: attr(value);
+            content: attr(placeholder);
         }
     }
 }
@@ -308,7 +314,7 @@ textarea {
             position: relative;
 
             .navigation__user-active_menu {
-                width: 220px;
+                width: max-content;
                 display: none;
                 position: absolute;
                 background: $blue-green_color;
@@ -328,6 +334,12 @@ textarea {
 
             .user-active_menu__title-img {
                 margin-right: 0.5rem;
+
+                .user-active_menu__title-avatar {
+                    max-width: 61px;
+                    max-height: 61px;
+                    border-radius: 40px;
+                }
             }
 
             .user-active_menu__nickname {
@@ -863,9 +875,16 @@ textarea {
         margin-bottom: 0.5rem;
     }
 
+    .comment__content-avatar {
+        max-width: 80px;
+        max-height: 80px;
+        border-radius: 40px;
+    }
+
     .comment__content-text {
         margin: 0 2rem;
         margin-top: 2rem;
+        word-break: break-word;
 
         .comment__content-text__paragraph {
             margin-bottom: 1rem;
@@ -1035,6 +1054,7 @@ textarea {
 
     .new__comment {
         display: none;
+        margin-top: 2rem;
     }
 
     .new__comment__content-text {
@@ -1218,6 +1238,7 @@ textarea {
 
         .user-content__panel-block:first-child {
             width: 70%;
+            word-break: break-word;
         }
 
         .user-content__panel-block {
@@ -1237,6 +1258,9 @@ textarea {
 
     .user-content__panel-description {
         font-size: 0.8rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .user-content__panel-block__link:hover {
@@ -2116,6 +2140,7 @@ textarea {
     color: $orange;
     font-weight: 700;
     text-align: center;
+    padding-bottom: 0.5rem;
 
 }
 

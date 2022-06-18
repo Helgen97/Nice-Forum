@@ -55,4 +55,11 @@ public class ServiceController {
                 ? new MessageResponse("Password changed", false)
                 : new MessageResponse("Password do not match", true);
     }
+
+    @PostMapping("change/avatar")
+    public String changeAvatarUrl(String url, @AuthenticationPrincipal CurrentUser currentUser) {
+        LOGGER.info(String.format("Changing user %s avatar URl.", currentUser.getNickname()));
+        return userService.changeAvatarUrl(url, currentUser.getId());
+
+    }
 }

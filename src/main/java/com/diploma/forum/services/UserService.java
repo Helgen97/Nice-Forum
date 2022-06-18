@@ -125,4 +125,11 @@ public class UserService {
         }
         return false;
     }
+
+    @Transactional
+    public String changeAvatarUrl(String url, Long id) {
+        User user = userRepository.getById(id);
+        user.setAvatarUrl(url);
+        return userRepository.save(user).getAvatarUrl();
+    }
 }

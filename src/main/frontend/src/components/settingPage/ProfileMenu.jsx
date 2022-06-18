@@ -63,7 +63,7 @@ const ProfileMenu = ({ currentUser }) => {
         id={"birthday"}
         type={"date"}
         labelText={"Birhday:"}
-        placeholder={""}
+        placeholder={user.birthday === "" ? "Enter birthday" : ""}
         value={user.birthday || ""}
         onChange={(e) => setUser({ ...user, birthday: e.target.value })}
       />

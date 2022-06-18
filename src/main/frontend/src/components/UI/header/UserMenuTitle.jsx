@@ -5,7 +5,15 @@ const UserMenuTitle = ({ user }) => {
   return (
     <div className="user-active_menu__title">
       <div className="user-active_menu__title-img">
-        <img src={avatar} alt="avatar" />
+        <img
+          src={
+            user.avatarUrl && user.avatarUrl !== "Default"
+              ? user.avatarUrl
+              : avatar
+          }
+          alt="avatar"
+          className="user-active_menu__title-avatar"
+        />
       </div>
       <div className="user-active_menu__title-text">
         <p className="user-active_menu__nickname">{user.nickname}</p>
