@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class UserService {
-  static API_URL = "http://localhost:8080/api/users/";
+  static API_URL = "/api/users/";
   static token = localStorage.getItem("jwt");
 
   static async getAllUsers(page, limit) {
@@ -54,21 +54,21 @@ export default class UserService {
 
   static async emailAvailable(email) {
     const response = await axios.post(
-      "http://localhost:8080/api/check/email?email=" + email
+      "/api/check/email?email=" + email
     );
     return response.data;
   }
 
   static async loginAvailable(login) {
     const response = await axios.post(
-      "http://localhost:8080/api/check/nickname?nickname=" + login
+      "/api/check/nickname?nickname=" + login
     );
     return response.data;
   }
 
   static async changePassword(oldPassword, newPassword) {
     const response = await axios.post(
-      "http://localhost:8080/change/password?oldPassword=" +
+      "/change/password?oldPassword=" +
         oldPassword +
         "&newPassword=" +
         newPassword,
@@ -84,7 +84,7 @@ export default class UserService {
 
   static async changeAvatarUrl(avatarUrl) {
     const responce = await axios.post(
-      "http://localhost:8080/change/avatar?url=" + avatarUrl,
+      "/change/avatar?url=" + avatarUrl,
       "",
       {
         headers: {

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class CommentService {
-  static API_URL = "http://localhost:8080/api/comments/";
+  static API_URL = "/api/comments/";
   static token = localStorage.getItem("jwt");
 
   static async createComment(comment) {

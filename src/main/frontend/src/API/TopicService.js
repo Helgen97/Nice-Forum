@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class TopicService {
-  static API_URL = "http://localhost:8080/api/topics/";
+  static API_URL = "/api/topics/";
   static token = localStorage.getItem("jwt");
 
   static async getById(topicID) {

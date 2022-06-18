@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class SectionService {
 
-    static API_URL = 'http://localhost:8080/api/sections/';
+    static API_URL = '/api/sections/';
     static token = localStorage.getItem("jwt")
 
     static async getAll() {
