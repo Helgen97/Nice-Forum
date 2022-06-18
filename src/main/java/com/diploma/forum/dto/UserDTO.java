@@ -15,6 +15,7 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String nickname;
+    private String avatarUrl = "Default";
     private Role role;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -32,6 +33,7 @@ public class UserDTO {
                     String firstName,
                     String lastName,
                     String nickname,
+                    String avatarUrl,
                     Role role,
                     Date birthday,
                     Date registrationDate,
@@ -44,6 +46,7 @@ public class UserDTO {
         this.firstName = firstName;
         this.lastName = lastName;
         this.nickname = nickname;
+        this.avatarUrl = avatarUrl;
         this.role = role;
         this.birthday = birthday;
         this.registrationDate = registrationDate;
@@ -59,6 +62,7 @@ public class UserDTO {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getNickname(),
+                user.getAvatarUrl(),
                 user.getRole(),
                 user.getBirthday(),
                 user.getRegistrationDate(),

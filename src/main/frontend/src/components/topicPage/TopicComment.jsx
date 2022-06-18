@@ -73,7 +73,7 @@ const TopicComment = ({ comment, index, removeComment, isAuth }) => {
   if (isUpdating) return <Loader />;
 
   return (
-    <div id={anchor}>
+    <div id={anchor} className="comment">
       <div className="comment__content">
         <CommentCreator
           creatorNickName={currentComment.creatorNickName}
