@@ -7,7 +7,7 @@ import Error from "../UI/errorBanner/Error";
 
 const SectionMenu = () => {
   const [newSection, setNewSection] = useState({
-    name: "",
+    title: "",
     description: "",
   });
   const [createSection, isCreating, creatingError] = useFetching(async () => {
@@ -41,8 +41,8 @@ const SectionMenu = () => {
         labelText={"Section title:"}
         type={"text"}
         placeholder={"Enter section title"}
-        value={newSection.name}
-        onChange={(e) => setNewSection({ ...newSection, name: e.target.value })}
+        value={newSection.title}
+        onChange={(e) => setNewSection({ ...newSection, title: e.target.value })}
         error={inputMessage}
       />
       <Input

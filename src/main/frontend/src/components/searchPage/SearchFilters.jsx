@@ -48,47 +48,49 @@ const SearchFilters = ({ applyFilters, params, setParams }) => {
         <h3>Search filters</h3>
         <button className="search__filters-title-btn" onClick={openFilterMenu}></button>
       </div>
-      <Input
-        id={"author"}
-        labelText={"Author:"}
-        type={"text"}
-        placeholder={"Author nickname"}
-        value={params.author}
-        onChange={(e) => setParams({ ...params, author: e.target.value })}
-      />
-      <SearchSectionMenu setSection={setSection} section={params.section} />
-      <SearchTagMenu
-        setTag={setTag}
-        unchooseTag={unchooseTag}
-        tags={params.tags}
-      />
-
-      <div className="search__filters-date">
-        <div>
-          <label>Date:</label>
+      <div className="search__filters-menu">
+        <Input
+          id={"author"}
+          labelText={"Author:"}
+          type={"text"}
+          placeholder={"Author nickname"}
+          value={params.author}
+          onChange={(e) => setParams({ ...params, author: e.target.value })}
+        />
+        <SearchSectionMenu setSection={setSection} section={params.section} />
+        <SearchTagMenu
+          setTag={setTag}
+          unchooseTag={unchooseTag}
+          tags={params.tags}
+        />
+  
+        <div className="search__filters-date">
+          <div>
+            <label>Date:</label>
+          </div>
+          <Input
+            id={"date_start"}
+            labelText={"Starts from:"}
+            type="date"
+            value={params.from}
+            onChange={(e) => setParams({ ...params, from: e.target.value })}
+          />
+          <Input
+            id={"date_end"}
+            labelText={"Up to (including):"}
+            type={"date"}
+            value={params.to}
+            onChange={(e) => setParams({ ...params, to: e.target.value })}
+          />
         </div>
-        <Input
-          id={"date_start"}
-          labelText={"Starts from:"}
-          type="date"
-          value={params.from}
-          onChange={(e) => setParams({ ...params, from: e.target.value })}
-        />
-        <Input
-          id={"date_end"}
-          labelText={"Up to (including):"}
-          type={"date"}
-          value={params.to}
-          onChange={(e) => setParams({ ...params, to: e.target.value })}
-        />
-      </div>
-      <div className="form-btn-container">
-        <button className="form-btn" onClick={apply}>
-          Apply
-        </button>
-        <button className="form-btn" onClick={clean}>
-          Reset
-        </button>
+        <div className="form-btn-container">
+          <button className="form-btn" onClick={apply}>
+            Apply
+          </button>
+          <button className="form-btn" onClick={clean}>
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
