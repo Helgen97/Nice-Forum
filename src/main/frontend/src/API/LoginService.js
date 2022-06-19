@@ -10,7 +10,7 @@ export default class LoginService {
     }
 
     static async getCurrentUser() {
-        const token = localStorage.getItem("jwt");
+        const token = sessionStorage.getItem("jwt");
         const responce = await axios.get("/api/user", {
             headers: {
                 'Authorization': token

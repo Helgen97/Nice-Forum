@@ -182,7 +182,7 @@ textarea {
         }
 
         .navigatition__menu_mobile_btn {
-            display: none;
+            display: block;
             background: url(../img/icons/burger.svg) no-repeat;
             @include navigation-menu-btns();
         }
@@ -198,6 +198,7 @@ textarea {
         }
 
         .navigation__mobile {
+            display: none;
             height: 60px;
             width: 60px;
             position: relative;
@@ -228,6 +229,7 @@ textarea {
             border-radius: $border-radius $border-radius 0 0;
 
             .navigatition__menu_mobile_btn {
+                display: block;
                 background: url(../img/icons/burger-active.svg) no-repeat;
             }
 
@@ -398,9 +400,11 @@ textarea {
         }
 
         .navigation__btns {
-            .navigatition__menu_mobile_btn {
+
+            .navigation__mobile {
                 display: block;
             }
+
         }
 
         .navigation__menu_mobile_active {
@@ -939,8 +943,8 @@ textarea {
         }
 
         .like_counter {
+            margin-right: 0 !important;
             font-size: 1.2rem;
-            vertical-align: super;
         }
     }
 
@@ -952,7 +956,7 @@ textarea {
         display: none;
         position: absolute;
         bottom: 40px;
-        right: -100px;
+        right: -30px;
         width: 250px;
         padding: 0.5rem;
         background-color: $grey-blue_color;
@@ -1748,7 +1752,7 @@ textarea {
     margin: 0.5rem 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
 
     .dropdown__chosen-tag {
         background: $grey-blue_color;

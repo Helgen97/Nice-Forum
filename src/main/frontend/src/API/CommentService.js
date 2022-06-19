@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class CommentService {
   static API_URL = "/api/comments/";
-  static token = localStorage.getItem("jwt");
+  static token = sessionStorage.getItem("jwt");
 
   static async createComment(comment) {
     const response = await axios.post(this.API_URL, comment, {

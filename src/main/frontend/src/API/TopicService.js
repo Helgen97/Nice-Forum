@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class TopicService {
   static API_URL = "/api/topics/";
-  static token = localStorage.getItem("jwt");
+  static token = sessionStorage.getItem("jwt");
 
   static async getById(topicID) {
     const response = await axios.get(this.API_URL + topicID);

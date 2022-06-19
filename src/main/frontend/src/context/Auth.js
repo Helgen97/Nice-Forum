@@ -17,8 +17,8 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    setAuth(localStorage.getItem("isAuth"));
-    setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
+    setAuth(sessionStorage.getItem("isAuth"));
+    setCurrentUser(JSON.parse(sessionStorage.getItem("currentUser")));
   }, []);
 
   return (

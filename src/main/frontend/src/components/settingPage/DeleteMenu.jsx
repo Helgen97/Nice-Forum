@@ -10,7 +10,7 @@ const DeleteMenu = ({ userId }) => {
 
   const [deleteAcc, isDeleting, deleteError] = useFetching(async () => {
     UserService.deleteUser(userId);
-    navigate("/logout", { replace: true });
+    navigate("/signout", { replace: true });
   });
 
   function deleteAccount() {

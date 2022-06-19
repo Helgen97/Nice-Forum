@@ -3,7 +3,7 @@ import axios from "axios";
 export default class SectionService {
 
     static API_URL = '/api/sections/';
-    static token = localStorage.getItem("jwt")
+    static token = sessionStorage.getItem("jwt")
 
     static async getAll() {
         const response = await axios.get(this.API_URL);

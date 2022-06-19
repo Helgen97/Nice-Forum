@@ -106,10 +106,12 @@ public class TopicService {
         LOGGER.info("Like topic with id: " + id + ".");
         Topic topic = topicRepository.getById(id);
         topic.setLikes(topic.getLikes() + 1);
-        userRepository.findById(topic.getCreator().getId()).ifPresent((e) -> {
-            e.setUserLikes(e.getUserLikes() + 1);
-            userRepository.save(e);
-        });
+        if(topic.getCreator() != null) {
+            userRepository.findById(topic.getCreator().getId()).ifPresent((e) -> {
+                e.setUserLikes(e.getUserLikes() + 1);
+                userRepository.save(e);
+            });
+        }
         topicRepository.save(topic);
     }
 
@@ -118,11 +120,12 @@ public class TopicService {
         LOGGER.info("Dislike topic with id: " + id + ".");
         Topic topic = topicRepository.getById(id);
         if (topic.getLikes() == 0) return;
-
-        userRepository.findById(topic.getCreator().getId()).ifPresent((e) -> {
-            e.setUserLikes(e.getUserLikes() - 1);
-            userRepository.save(e);
-        });
+        if(topic.getCreator() != null) {
+            userRepository.findById(topic.getCreator().getId()).ifPresent((e) -> {
+                e.setUserLikes(e.getUserLikes() - 1);
+                userRepository.save(e);
+            });
+        }
         topic.setLikes(topic.getLikes() - 1);
         topicRepository.save(topic);
     }

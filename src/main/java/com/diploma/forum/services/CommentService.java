@@ -96,10 +96,12 @@ public class CommentService {
         LOGGER.info("Like comment with id: " + id + ".");
         Comment comment = commentRepository.getById(id);
         comment.setLikes(comment.getLikes() + 1);
-        userRepository.findById(comment.getCommentCreator().getId()).ifPresent((e) -> {
-            e.setUserLikes(e.getUserLikes() + 1);
-            userRepository.save(e);
-        });
+        if(comment.getCommentCreator() != null) {
+            userRepository.findById(comment.getCommentCreator().getId()).ifPresent((e) -> {
+                e.setUserLikes(e.getUserLikes() + 1);
+                userRepository.save(e);
+            });
+        }
         commentRepository.save(comment);
     }
 
@@ -108,10 +110,12 @@ public class CommentService {
         LOGGER.info("Dislike comment with id: " + id + ".");
         Comment comment = commentRepository.getById(id);
         if (comment.getLikes() == 0) return;
-        userRepository.findById(comment.getCommentCreator().getId()).ifPresent((e) -> {
-            e.setUserLikes(e.getUserLikes() + 1);
-            userRepository.save(e);
-        });
+        if(comment.getCommentCreator() != null) {
+            userRepository.findById(comment.getCommentCreator().getId()).ifPresent((e) -> {
+                e.setUserLikes(e.getUserLikes() + 1);
+                userRepository.save(e);
+            });
+        }
         comment.setLikes(comment.getLikes() - 1);
         commentRepository.save(comment);
     }

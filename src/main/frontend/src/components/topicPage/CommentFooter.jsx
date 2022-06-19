@@ -34,18 +34,44 @@ const CommentFooter = ({ creatorID, edit, like, likesCount, del }) => {
 
   return (
     <div className="comment__footer">
+      <div className="like_counter">{likesCount}</div>
+      {!isAuth && (
+        <div className="like-btn-container">
+          <button className="like-btn like-btn-active" title="Like"></button>
+        </div>
+      )}
       {isAuth && (
         <div className="like-btn-container" onClick={like}>
-          <span className="like_counter">{likesCount}</span>
           <button className="like-btn" title="Like"></button>
         </div>
       )}
-      <div className="share-btn-container">
-        <button
-          className="share-btn"
-          onClick={share}
-          title="Share"
-        ></button>
+      {isAuth &&
+        (creatorID === currentUser.id ||
+          currentUser.role === "ADMIN" ||
+          currentUser.role === "MODERATOR") && (
+          <div className="edit-btn-container">
+            <button className="edit-btn" onClick={edit} title="Edit" />
+          </div>
+        )}
+      {isAuth && (
+        <div className="reply-btn-container">
+          <button className="reply-btn" onClick={reply} title="Reply"></button>
+        </div>
+      )}
+      {isAuth &&
+        (creatorID === currentUser.id ||
+          currentUser.role === "ADMIN" ||
+          currentUser.role === "MODERATOR") && (
+          <div className="delete-btn-container">
+            <button
+              className="delete-btn"
+              onClick={del}
+              title="Delete"
+            ></button>
+          </div>
+        )}
+        <div className="share-btn-container">
+        <button className="share-btn" onClick={share} title="Share"></button>
         <div className="share-menu">
           <div className="share-menu__title">
             <p>Share</p>
@@ -55,31 +81,6 @@ const CommentFooter = ({ creatorID, edit, like, likesCount, del }) => {
           </div>
         </div>
       </div>
-      {isAuth && creatorID === currentUser.id && (
-        <div className="edit-btn-container">
-          <button className="edit-btn" onClick={edit} title="Edit" />
-        </div>
-      )}
-      {isAuth && (
-        <div className="reply-btn-container">
-          <button
-            className="reply-btn"
-            onClick={reply}
-            title="Reply"
-          ></button>
-        </div>
-      )}
-      {isAuth &&
-        (creatorID === currentUser.id ||
-          currentUser.role === ("MODERATOR" || "ADMIN")) && (
-          <div className="delete-btn-container">
-            <button
-              className="delete-btn"
-              onClick={del}
-              title="Delete"
-            ></button>
-          </div>
-        )}
     </div>
   );
 };

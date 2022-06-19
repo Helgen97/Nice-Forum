@@ -19,7 +19,7 @@ const NewComment = ({ topicId, addNewComment }) => {
   });
 
   useEffect(() => {
-    setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
+    setCurrentUser(JSON.parse(sessionStorage.getItem("currentUser")));
   }, []);
 
   function create() {

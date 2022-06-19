@@ -136,7 +136,9 @@ const TagMenu = ({ setTags, unChooseTag, setError }) => {
             {gettingTagListError && <Error error={gettingTagListError} />}
             <ul className="dropdown-ul">
               {tagName === "" ||
-              tagList.some((tag) => tag.tagName === tagName) ? (
+              chosenTags.some((tag) => tag.tagName === tagName) ||
+              tagList.some((tag) => tag.tagName === tagName) 
+              ? (
                 ""
               ) : (
                 <li onClick={createTag} className="dropdown-li">

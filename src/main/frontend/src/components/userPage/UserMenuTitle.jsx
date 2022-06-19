@@ -6,8 +6,8 @@ const UserMenuTitle = ({ nickname, userID, avatarUrl }) => {
   const [currentUser, setCurrentUser] = useState({});
 
   useEffect(() => {
-    setAuth(localStorage.getItem("isAuth") === "true");
-    setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
+    setAuth(sessionStorage.getItem("isAuth") === "true");
+    setCurrentUser(JSON.parse(sessionStorage.getItem("currentUser")));
   }, []);
 
   return (

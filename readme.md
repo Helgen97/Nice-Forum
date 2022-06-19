@@ -8,9 +8,9 @@ Welcome! This is my project, that I've made for ending my Full-Stack Courses.<br
 It is a forum where you can post your topics, make comments and speak with others members of forum.<br>
 [Here you can see the site layout at Figma](https://www.figma.com/file/9SN9dMWdPx9asYa6F0Hi6w/Nice-Forum?node-id=0%3A1)
 
-## Try it 
-
-``For live version, I'll post my project at Heroku``
+## Try it
+###[Live version](https://nice-forum.herokuapp.com)
+*May take time to load*
 
 ## Get started 
 
@@ -30,6 +30,15 @@ It is a forum where you can post your topics, make comments and speak with other
 * Enjoy
 
 ## Rest API documentation
+
+### Live API documentation
+
+```
+https://nice-forum.herokuapp.com/swagger-ui/index.html
+```
+
+### Local documentation
+
 After launching application, you can go to:
 ```
 http://localhost:8080/swagger-ui/index.html

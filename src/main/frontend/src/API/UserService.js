@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default class UserService {
   static API_URL = "/api/users/";
-  static token = localStorage.getItem("jwt");
+  static token = sessionStorage.getItem("jwt");
 
   static async getAllUsers(page, limit) {
     const response = await axios.get(

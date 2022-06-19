@@ -7,13 +7,6 @@ import "./styles/forum.css";
 
 function App() {
 
-  if (Date.now() > new Date(localStorage.getItem("tokenExpirationDate"))) {
-    localStorage.removeItem("jwt");
-    localStorage.removeItem("isAuth");
-    localStorage.removeItem("currentUser");
-    localStorage.removeItem("tokenExpirationDate");
-  }
-
   return (
     <div>
       <Header />

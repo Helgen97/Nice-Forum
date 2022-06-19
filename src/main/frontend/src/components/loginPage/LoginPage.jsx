@@ -21,7 +21,7 @@ const LoginPage = () => {
   const [getCurrentUser, isLoading, gettingCurrentUserError] = useFetching(
     async () => {
       const currentUser = await LoginService.getCurrentUser();
-      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
       navigate("/", { replace: true });
     }
   );
@@ -41,12 +41,8 @@ const LoginPage = () => {
         const jwtToken = result.headers.authorization;
 
         if (jwtToken !== null) {
-          localStorage.setItem("jwt", jwtToken);
-          localStorage.setItem("isAuth", true);
-          localStorage.setItem(
-            "tokenExpirationDate",
-            new Date(Date.now() + tokenExpireTime)
-          );
+          sessionStorage.setItem("jwt", jwtToken);
+          sessionStorage.setItem("isAuth", true);
           getCurrentUser();
         }
       })

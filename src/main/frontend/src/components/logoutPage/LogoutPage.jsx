@@ -2,10 +2,9 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 const LogoutPage = () => {
-  localStorage.removeItem("jwt");
-  localStorage.removeItem("currentUser");
-  localStorage.removeItem("isAuth");
-  localStorage.removeItem("tokenExpirationDate")
+  sessionStorage.removeItem("jwt");
+  sessionStorage.removeItem("currentUser");
+  sessionStorage.removeItem("isAuth");
 
   return <Navigate to={"/"} replace={true} />;
 };
