@@ -9,7 +9,7 @@ It is a forum where you can post your topics, make comments and speak with other
 [Here you can see the site layout at Figma](https://www.figma.com/file/9SN9dMWdPx9asYa6F0Hi6w/Nice-Forum?node-id=0%3A1)
 
 ## Try it
-###[Live version](https://nice-forum.herokuapp.com)
+### [Live version](https://nice-forum.herokuapp.com)<br>
 *May take time to load*
 
 ## Get started 
