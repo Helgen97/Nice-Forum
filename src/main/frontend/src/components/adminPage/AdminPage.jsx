@@ -25,7 +25,7 @@ const AdminPage = () => {
     $("#user_list_menu").addClass("settings__panel-edit__block-active");
   }
 
-  if (!isAuth && currentUser.role !== "ADMIN") return <PermissionDeniedBlock />;
+  if (!isAuth || ( isAuth && currentUser.role !== "ADMIN")) return <PermissionDeniedBlock />;
 
   return (
     <main className="admin-page">
