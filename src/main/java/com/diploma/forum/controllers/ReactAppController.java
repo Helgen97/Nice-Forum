@@ -13,4 +13,16 @@ public class ReactAppController implements ErrorController {
         return "index";
     }
 
+    @RequestMapping("robots.txt")
+    public String getRobots() {
+
+        return "robots.txt";
+    }
+
+    @RequestMapping("sitemap.xml")
+    public String getSiteMap() {
+
+        return "sitemap.xml";
+    }
+
 }
