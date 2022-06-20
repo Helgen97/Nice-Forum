@@ -3,13 +3,13 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import MetaImage from "../../../img/MetaImage.png";
 
 const MetaTags = ({ title, description, keywords, noRobots }) => {
-  const MetaImgURL = "http://" + window.location.host;
+  const MetaImgURL = "https://" + window.location.host;
 
   return (
     <HelmetProvider>
       <Helmet>
         <title>{title}</title>
-        {noRobots && <meta name="robots" content="noindex" />}
+        {noRobots ? <meta name="robots" content="noindex"/> : <meta name="robots" content="index,follow" />}
         <meta name="description" content={description} />
         <meta name=" keywords" content={keywords} />
 
@@ -23,7 +23,7 @@ const MetaTags = ({ title, description, keywords, noRobots }) => {
         <meta property="og:description" content={description} />
         <meta property="og:image" content={MetaImgURL + MetaImage} />
 
-        <meta name="twitter:card" content="nice-forum_image" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={MetaImgURL + MetaImage} />
