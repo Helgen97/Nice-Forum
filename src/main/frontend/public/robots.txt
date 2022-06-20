@@ -1,0 +1,8 @@
+User-agent: Googlebot
+Disallow: /settings/
+Disallow: /admin/
+
+User-agent: *
+Allow: /
+
+Sitemap: http://nice-forum.herokuapp.com/sitemap.xml
