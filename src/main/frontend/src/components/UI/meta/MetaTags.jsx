@@ -12,6 +12,7 @@ const MetaTags = ({ title, description, keywords, noRobots }) => {
         {noRobots ? <meta name="robots" content="noindex"/> : <meta name="robots" content="index,follow" />}
         <meta name="description" content={description} />
         <meta name=" keywords" content={keywords} />
+        <link rel="canonical" href={window.location.href}></link>
 
         <meta itemProp="name" content={title} />
         <meta itemProp="description" content={description} />
