@@ -5,4 +5,4 @@ Disallow: /admin/
 User-agent: *
 Allow: /
 
-Sitemap: http://nice-forum.herokuapp.com/sitemap.xml
+Sitemap: https://nice-forum.herokuapp.com/sitemap.txt
