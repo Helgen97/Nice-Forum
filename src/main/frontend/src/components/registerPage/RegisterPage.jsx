@@ -8,7 +8,7 @@ const RegisterPage = () => {
       <MetaTags
         title={"Sign up - Nice Forum - Forum of Nice Communication!"}
         description={
-          "Forum sign up. Create your profile and start chatting, share news and find new friends"
+          "Want to become part of our community? Here you go! Forum sign up. Create your profile and start chatting, share news and find new friends"
         }
         keywords={"Forum, speaking, sections, friendship, registration, sign up"}
       />

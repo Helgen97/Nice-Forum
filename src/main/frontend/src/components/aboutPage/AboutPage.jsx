@@ -8,9 +8,9 @@ const AboutPage = () => {
       <MetaTags
         title={"About - Nice Forum - Forum of Nice Communication"}
         description={
-          "About forum. At this page you can read about this forum, who created it and why."
+          "About forum. At this page you can read about this forum, who created it and why. First to read! Interesting page of this forum!"
         }
-        keywords={"Forum, speaking, sections, friendship, about, creator"}
+        keywords={"Forum, speaking, sections, friendship, about, creator, project, details, goal, links, contact"}
       />
 
       <div className="about-page">

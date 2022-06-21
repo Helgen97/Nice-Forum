@@ -1,9 +1,10 @@
 https://nice-forum.herokuapp.com/
-https://nice-forum.herokuapp.com/topic
-https://nice-forum.herokuapp.com/section
-https://nice-forum.herokuapp.com/user
+https://nice-forum.herokuapp.com/topic/1
+https://nice-forum.herokuapp.com/topic/2
+https://nice-forum.herokuapp.com/section/1
+https://nice-forum.herokuapp.com/user/1
 https://nice-forum.herokuapp.com/search
 https://nice-forum.herokuapp.com/create
-https://nice-forum.herokuapp.com/login
+https://nice-forum.herokuapp.com/signin
 https://nice-forum.herokuapp.com/register
 https://nice-forum.herokuapp.com/about

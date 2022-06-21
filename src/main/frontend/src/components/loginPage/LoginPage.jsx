@@ -64,9 +64,9 @@ const LoginPage = () => {
       <MetaTags
         title={"Sign in - Nice Forum - Forum of Nice Communication!"}
         description={
-          "Nice-Forum sign in. Sign into your profile and start chatting."
+          "Quickly come in! We are waiting for you! Nice-Forum sign in. Sign into your profile and start chatting."
         }
-        keywords={"Forum, speaking, sections, friendship, sign in, authorisation"}
+        keywords={"Forum, speaking, sections, friendship, sign in, authorisation, connection, new user, friend"}
       />
         <div className="form">
           <div className="form__title">

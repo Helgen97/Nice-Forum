@@ -13,8 +13,8 @@ const CreateTopicPage = () => {
     <main className="create-page">
       <MetaTags
         title="Create topic - Nice Forum - Forum of Nice Communication!"
-        description="Create new topic and share it to others."
-        keywords="Forum, speaking, sections, new topic, creating"
+        description="Want create topic? Here you can do this! Create new topic and share it to others."
+        keywords="Forum, speaking, sections, new topic, creating, tags, text, questions, post, thread"
       />
 
       <CreateForm />

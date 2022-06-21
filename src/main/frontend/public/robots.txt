@@ -4,5 +4,12 @@ Disallow: /admin/
 
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /signin
+Allow: /register
+Allow: /search
+Allow: /topic/
+Allow: /user/
+Allow: /section/
 
 Sitemap: https://nice-forum.herokuapp.com/sitemap.txt

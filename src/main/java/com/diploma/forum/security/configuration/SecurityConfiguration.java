@@ -45,7 +45,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeRequests().antMatchers("/favicon.ico", "/robots.txt", "/sitemap.txt", "/apple-touch-icon-180x180-precomposed.png", "/apple-touch-icon-152x152-precomposed.png", "/apple-touch-icon-144x144-precomposed.png", "/apple-touch-icon-114x114-precomposed.png", "/apple-touch-icon-72x72-precomposed.png", "/apple-touch-icon-precomposed.png", "/favicon.png").permitAll()
+                .authorizeRequests().antMatchers("/robots.txt", "/sitemap.txt").permitAll()
                 .and()
                 .authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll()
                 .and()

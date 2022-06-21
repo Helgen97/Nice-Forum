@@ -58,7 +58,7 @@ const SearchPage = () => {
     <main className="search-page">
       <MetaTags 
       title={"Advanced Search - Topic Search - Nice Forum - Forum of Nice Communication!"}
-      description={"Advanced Search. Search by sections, tags, authors and topics."}
+      description={"Looking something special? Lets start here! Advanced Search. Search by sections, tags, authors and topics."}
       keywords={"Forum, speaking, sections, friendship, news, search, advanced search, tags, sections, date"}
       />
       <SearchHeader
