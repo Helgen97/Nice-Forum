@@ -1,0 +1,9 @@
+http://nice-forum.herokuapp.com/
+http://nice-forum.herokuapp.com/topic
+http://nice-forum.herokuapp.com/section
+http://nice-forum.herokuapp.com/user
+http://nice-forum.herokuapp.com/search
+http://nice-forum.herokuapp.com/create
+http://nice-forum.herokuapp.com/login
+http://nice-forum.herokuapp.com/register
+http://nice-forum.herokuapp.com/about
