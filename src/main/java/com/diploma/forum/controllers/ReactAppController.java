@@ -2,11 +2,12 @@ package com.diploma.forum.controllers;
 
 import com.diploma.forum.sitemap.SiteMapGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ReactAppController {
+public class ReactAppController implements ErrorController {
 
     private final SiteMapGenerator siteMapGenerator;
 
@@ -15,7 +16,7 @@ public class ReactAppController {
         this.siteMapGenerator = siteMapGenerator;
     }
 
-    @RequestMapping(value = {"/", "/{x:[\\w\\-]+}", "/{x:^(?!api$).*$}/*/{y:[\\w\\-]+}", "/error"})
+    @RequestMapping(value = "*")
     public String getIndex() {
         return "index";
     }
