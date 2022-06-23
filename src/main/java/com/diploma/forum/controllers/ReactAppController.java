@@ -18,7 +18,7 @@ public class ReactAppController implements ErrorController {
 
     @RequestMapping(value = "*")
     public String getIndex() {
-        return "/index.html";
+        return "index";
     }
 
     @RequestMapping({"/robots.txt"})
