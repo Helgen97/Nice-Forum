@@ -15,7 +15,7 @@ import Loader from "../UI/loader/Loader";
 import { useAuth } from "../../context/Auth";
 
 const MainComment = ({ topicId }) => {
-  const maxTextLength = 600;
+  const maxTextLength = 1800;
   const [topic, setTopic] = useState({});
   const [newTopicText, setNewTopicText] = useState("");
   const { isAuth } = useAuth();

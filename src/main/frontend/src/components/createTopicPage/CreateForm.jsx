@@ -12,7 +12,7 @@ import Error from "../UI/errorBanner/Error";
 const CreateForm = () => {
   const navigate = useNavigate();
 
-  const maxTextLength = 600;
+  const maxTextLength = 1800;
   const [newTopic, setNewTopic] = useState({
     title: "",
     description: "",

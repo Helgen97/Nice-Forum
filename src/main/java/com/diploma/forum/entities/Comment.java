@@ -29,7 +29,7 @@ public class Comment {
     @Column(name = "Date_Of_Creation")
     private LocalDateTime dateCreation;
 
-    @Column(name = "Comment_Text", length = 300)
+    @Column(name = "Comment_Text", length = 600)
     private String text;
 
     @ManyToOne(fetch = FetchType.LAZY)

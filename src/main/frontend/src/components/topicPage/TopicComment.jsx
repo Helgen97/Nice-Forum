@@ -14,7 +14,7 @@ import Loader from "../UI/loader/Loader";
 const TopicComment = ({ comment, index, removeComment, isAuth }) => {
   const anchor = "comment_" + (index + 1);
   const editAreaId = anchor + "_edit";
-  const maxTextLength = 300;
+  const maxTextLength = 600;
 
   const [newCommentText, setNewCommentText] = useState("");
 
