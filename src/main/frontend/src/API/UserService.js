@@ -4,14 +4,9 @@ export default class UserService {
   static API_URL = "/api/users/";
   static token = sessionStorage.getItem("jwt");
 
-  static async getAllUsers(page, limit) {
+  static async getAllUsers(page = "0", limit = "100") {
     const response = await axios.get(
-      this.API_URL + "?page=" + page + "&limit=" + limit,
-      {
-        headers: {
-          Authorization: this.token,
-        },
-      }
+      this.API_URL + "?page=" + page + "&limit=" + limit
     );
     return response.data;
   }
@@ -53,16 +48,12 @@ export default class UserService {
   }
 
   static async emailAvailable(email) {
-    const response = await axios.post(
-      "/api/check/email?email=" + email
-    );
+    const response = await axios.post("/api/check/email?email=" + email);
     return response.data;
   }
 
   static async loginAvailable(login) {
-    const response = await axios.post(
-      "/api/check/nickname?nickname=" + login
-    );
+    const response = await axios.post("/api/check/nickname?nickname=" + login);
     return response.data;
   }
 
@@ -83,15 +74,11 @@ export default class UserService {
   }
 
   static async changeAvatarUrl(avatarUrl) {
-    const responce = await axios.post(
-      "/change/avatar?url=" + avatarUrl,
-      "",
-      {
-        headers: {
-          Authorization: this.token,
-        },
-      }
-    );
+    const responce = await axios.post("/change/avatar?url=" + avatarUrl, "", {
+      headers: {
+        Authorization: this.token,
+      },
+    });
     return responce.data;
   }
 }

@@ -4,6 +4,11 @@ export default class TopicService {
   static API_URL = "/api/topics/";
   static token = sessionStorage.getItem("jwt");
 
+  static async getAllTopics() {
+    const response = await axios.get(this.API_URL);
+    return response.data;
+  }
+
   static async getById(topicID) {
     const response = await axios.get(this.API_URL + topicID);
     return response.data;

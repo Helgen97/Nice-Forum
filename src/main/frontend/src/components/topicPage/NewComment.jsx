@@ -10,7 +10,7 @@ import Loader from "../UI/loader/Loader";
 const NewComment = ({ topicId, addNewComment }) => {
   const [newCommentText, setNewCommentText] = useState("");
   const [currentUser, setCurrentUser] = useState({ nickname: "" });
-  const maxTextLength = 300;
+  const maxTextLength = 600;
 
   const [createComment, isCreating, error] = useFetching(async (comment) => {
     CommentService.createComment(comment).then((result) => {
