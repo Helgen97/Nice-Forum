@@ -21,13 +21,13 @@ public class ReactAppController implements ErrorController {
         return "index";
     }
 
-    @RequestMapping({"/robots.txt"})
+    @RequestMapping({"robots.txt"})
     public String getRobots() {
 
         return "robots.txt";
     }
 
-    @RequestMapping({"/sitemap.txt"})
+    @RequestMapping({"sitemap.txt"})
     public String getSitemap() {
         siteMapGenerator.createSiteMap();
         return "sitemap.txt";
