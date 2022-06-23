@@ -31,7 +31,7 @@ public class SiteMapGenerator {
 
     public void createSiteMap() {
         LOGGER.info("Creating new sitemap!");
-        try (FileWriter fw = new FileWriter("target/classes/static/sitemap.txt"); BufferedWriter bw = new BufferedWriter(fw)) {
+        try (FileWriter fw = new FileWriter("target/classes/static/sitemap1.txt"); BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(sitemapText());
             bw.flush();
             LOGGER.info("Creating new sitemap comleted!");
