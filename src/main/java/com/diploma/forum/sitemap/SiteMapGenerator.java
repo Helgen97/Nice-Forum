@@ -29,6 +29,19 @@ public class SiteMapGenerator {
         this.topicRepository = topicRepository;
     }
 
+//    For re-write sitemap.txt every time(Don't work at Heroku(only read file system))
+    public void createSiteMap() {
+        LOGGER.info("Creating new sitemap!");
+        try (FileWriter fw = new FileWriter("target/classes/static/sitemap1.txt"); BufferedWriter bw = new BufferedWriter(fw)) {
+            bw.write(sitemapText());
+            bw.flush();
+            LOGGER.info("Creating new sitemap comleted!");
+        } catch (IOException e) {
+            LOGGER.info("Creating new sitemap error!");
+            LOGGER.error(e.getMessage());
+        }
+    }
+
     public String sitemapText() {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("https://nice-forum.herokuapp.com/\n");

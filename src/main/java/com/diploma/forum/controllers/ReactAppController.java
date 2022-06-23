@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class ReactAppController implements ErrorController {
 
@@ -30,7 +32,8 @@ public class ReactAppController implements ErrorController {
 
     @RequestMapping({"sitemap.txt"})
     @ResponseBody
-    public String getSitemap() {
+    public String getSitemap(HttpServletResponse response) {
+        response.setContentType("text/plain");
         return siteMapGenerator.sitemapText();
     }
 
