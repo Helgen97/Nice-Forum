@@ -3,6 +3,7 @@ package com.diploma.forum.controllers;
 import com.diploma.forum.sitemap.SiteMapGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,7 +20,7 @@ public class ReactAppController implements ErrorController {
         this.siteMapGenerator = siteMapGenerator;
     }
 
-    @RequestMapping(value = "*")
+    @RequestMapping(value = "*", produces = MediaType.TEXT_HTML_VALUE)
     public String getIndex() {
         return "index";
     }
@@ -30,10 +31,9 @@ public class ReactAppController implements ErrorController {
         return "robots.txt";
     }
 
-    @RequestMapping({"sitemap.txt"})
+    @RequestMapping(value = {"sitemap.txt"}, produces = MediaType.TEXT_PLAIN_VALUE)
     @ResponseBody
-    public String getSitemap(HttpServletResponse response) {
-        response.setContentType("text/plain");
+    public String getSitemap() {
         return siteMapGenerator.sitemapText();
     }
 
