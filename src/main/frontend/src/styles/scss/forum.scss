@@ -409,7 +409,7 @@ textarea {
 
         .navigation__menu_mobile_active {
             width: 350px !important;
-            left: -180px;
+            left: -190px;
         }
 
         .navigatiom__menu-list__li-link {
@@ -417,7 +417,7 @@ textarea {
         }
 
         .navigation__search-active_menu {
-            left: -240px;
+            left: -250px;
         }
     }
 
@@ -875,7 +875,7 @@ textarea {
     }
 
     .comment-text-area {
-        padding: 1rem;
+        padding: 1rem 1.5rem ;
     }
 
     .comment__content-username {
@@ -895,7 +895,7 @@ textarea {
         word-break: break-word;
 
         textarea {
-            padding: 1rem;
+            padding: 1rem 1.5rem;
         }
 
         .comment__content-text__paragraph {
